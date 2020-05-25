@@ -4,8 +4,6 @@ namespace Utilitaires
 {
     public class AuthReset
     {
-        private Snippets snippets;
-
         #region "Propriétés"
         public string PasswordAccessErrorText;
         public string PasswordButtonText;
@@ -23,7 +21,7 @@ namespace Utilitaires
         #region "Constructeur"
         public AuthReset(string composantNom,DataTable composants)
         {
-            snippets = new Snippets();
+            Snippets snippets = new Snippets();
             PasswordAccessErrorText = snippets.ChargeAttribut("PasswordAccessErrorText", composants, composantNom);
             PasswordButtonText = snippets.ChargeAttribut("PasswordButtonText", composants, composantNom);
             PasswordEmailTransfer = snippets.ChargeAttribut("PasswordEmailTransfer", composants, composantNom);

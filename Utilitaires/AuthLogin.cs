@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Utilitaires
 {
     class AuthLogin
     {
-        private Snippets snippets;
-
         #region "Propriétés"
         public string LoginButtonText;
         public string LoginEmailText;
@@ -34,7 +28,7 @@ namespace Utilitaires
         #region "Constructeur"
         public AuthLogin(string composantNom, DataTable composants)
         {
-            snippets = new Snippets();
+            Snippets snippets = new Snippets();
             LoginButtonText = snippets.ChargeAttribut("LoginButtonText", composants, composantNom);
             LoginEmailText = snippets.ChargeAttribut("LoginEmailText", composants, composantNom);
             LoginNoteLoginFailed = snippets.ChargeAttribut("LoginNoteLoginFailed", composants, composantNom);
