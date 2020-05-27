@@ -1,0 +1,179 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Utilitaires
+{
+    public partial class EmailTransfer
+    {
+        private Snippets snippets = new Snippets();
+        private EmailMessage _emailMessage;
+        private EmailServer _emailServer;
+        private string s_choix;
+        private string s_dsn;
+
+        public EmailTransfer(string _composant, DataTable _composants, string _nom, string _url, string _adresse, string _option, string _dsn)
+        {
+            s_choix = _option;
+            s_dsn = _dsn;
+            ChargeProprietes(_composants, _composant);
+            _emailMessage = new EmailMessage(TransferEmailMessageName, _composants, _nom, _url, _adresse);
+            _emailServer = new EmailServer(TransferEmailServerName, _composants);
+        }
+
+        /// <summary>
+        /// Nom du composant message email utilisé
+        /// </summary>
+        public string TransferEmailMessageName { get; set; }
+
+        /// <summary>
+        /// Nom du composant serveur de mail utilisé
+        /// </summary>
+        public string TransferEmailServerName { get; set; }
+
+        /// <summary>
+        /// Adresse de messagerie des destinataires en copie
+        /// </summary>
+        public string TransferRecipientBcc { get; set; }
+
+        /// <summary>
+        /// Destinataires BCC dynamiques
+        /// </summary>
+        public bool TransferRecipientBccDynamic { get; set; }
+
+        /// <summary>
+        /// Requête pour récupération des adresses de messagerie des destinataires en copie sous conditions
+        /// </summary>
+        public string TransferRecipientBccSql { get; set; }
+
+        /// <summary>
+        /// Adresses de messagerie des destinataires
+        /// </summary>
+        public string TransferRecipientTo { get; set; }
+
+        /// <summary>
+        /// Destinataires TO dynamiques
+        /// </summary>
+        public bool TransferRecipientToDynamic { get; set; }
+
+        /// <summary>
+        /// Requête pour récupération des adresses de messagerie des destinataires sous conditions
+        /// </summary>
+        public string TransferRecipientToSql { get; set; }
+
+        /// <summary>
+        /// Envoi du message
+        /// </summary>
+        public void EnvoieMessage()
+        {
+            string[] _recipients;
+            if (TransferRecipientToDynamic)
+            {
+                _recipients = ChargeDestinataires(TransferRecipientToSql);
+            }
+            else
+            {
+                //_recipients = Strings.Split(TransferRecipientTo, "|");
+            }
+
+            foreach (string _recipient in _recipients)
+            {
+                try
+                {
+                    _emailMessage.To.Add(_recipient);
+                }
+                catch
+                {
+                }
+            }
+
+            if (TransferRecipientBccDynamic)
+            {
+                _recipients = ChargeDestinataires(TransferRecipientBccSql);
+            }
+            else
+            {
+                //_recipients = Strings.Split(TransferRecipientBcc, "|");
+            }
+
+            foreach (string _recipient in _recipients)
+            {
+                try
+                {
+                    _emailMessage.Bcc.Add(_recipient);
+                }
+                catch
+                {
+                }
+            }
+
+            try
+            {
+                _emailServer.Send(_emailMessage);
+            }
+            catch
+            {
+            }
+
+            _emailServer = null;
+            _emailMessage = null;
+        }
+
+        private void ChargeProprietes(DataTable _composants, string _composantNom)
+        {
+            TransferEmailMessageName = snippets.ChargeAttribut("TransferEmailMessageName", _composants, _composantNom);
+            TransferEmailServerName = snippets.ChargeAttribut("TransferEmailServerName", _composants, _composantNom);
+            TransferRecipientBcc = snippets.ChargeAttribut("TransferRecipientBcc", _composants, _composantNom);
+            TransferRecipientBccDynamic = Convert.ToBoolean(snippets.ChargeAttribut("TransferRecipientBccDynamic", _composants, _composantNom));
+            TransferRecipientBccSql = snippets.ChargeAttribut("TransferRecipientBccSql", _composants, _composantNom);
+            TransferRecipientTo = snippets.ChargeAttribut("TransferRecipientTo", _composants, _composantNom);
+            TransferRecipientToDynamic = Convert.ToBoolean(snippets.ChargeAttribut("TransferRecipientToDynamic", _composants, _composantNom));
+            TransferRecipientToSql = snippets.ChargeAttribut("TransferRecipientToSql", _composants, _composantNom);
+        }
+
+        private string[] ChargeDestinataires(string _code)
+        {
+            string[] ChargeDestinatairesRet = default;
+            var _emailCondition = Strings.Split(s_choix, "|");
+            string _req;
+            DataServices oData;
+            for (int i = 0; i <= 2; i++)
+            {
+                if (string.IsNullOrEmpty(_emailCondition[i]))
+                    _emailCondition[i] = "-";
+                else
+                    _emailCondition[i] = CleanQuotes(_emailCondition[i]);
+            }
+
+            _req = "select destinataire_emails from crmDESTINATAIRES WHERE destinataire_source='" + _code + "'";
+            _req += " and (destinataire_filtre1='" + _emailCondition[0] + "' or destinataire_filtre1='*')";
+            _req += " and (destinataire_filtre2='" + _emailCondition[1] + "' or destinataire_filtre2='*')";
+            _req += " and (destinataire_filtre3='" + _emailCondition[2] + "' or destinataire_filtre3='*')";
+            oData = new DataServices(s_dsn, _req);
+            oData.GetStructures();  
+            if (oData.UtilityDataExiste)
+            {
+               // ChargeDestinatairesRet = Strings.Split(oData.AdnDataField, "|");
+            }
+            else
+            {
+               // ChargeDestinatairesRet = Strings.Split("-", "|");
+            }
+
+            oData.Dispose();
+            oData = default;
+            return ChargeDestinatairesRet;
+        }
+
+        private string CleanQuotes(string _content)
+        {
+            string CleanQuotesRet = default;
+           // CleanQuotesRet = Strings.Replace(_content, "'", "''");
+            return CleanQuotesRet;
+        }
+
+    }
+}
