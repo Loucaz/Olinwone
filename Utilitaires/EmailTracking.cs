@@ -7,14 +7,10 @@ namespace Utilitaires
 {
     public class EmailTracking : IHttpModule
     {
-        private DataServices snippets;
+        private DataServices oData;
         private DataTable _mailinglinks;
         private string _dsn;
-        private string _mailingID;
 
-        public EmailTracking()
-        {
-        }
 
         public void Dispose()
         {
@@ -34,7 +30,7 @@ namespace Utilitaires
             string _userID = Instance.Request.QueryString["uid"];
             string _linkID;
             string _linkURL;
-            if (!string.IsNullOrEmpty(_mailID) & !string.IsNullOrEmpty(_userID))
+            if (!string.IsNullOrEmpty(_mailID) && !string.IsNullOrEmpty(_userID))
             {
                 _dsn = Instance.Application["dsn"].ToString();
                 _mailID = GetDataRow("select mailing_id from crmMAILING where mailing_cle='" + _mailID + "'")["mailing_id"].ToString();
@@ -79,39 +75,33 @@ namespace Utilitaires
                     }
                 }
             }
-
-            _pattern = null;
-            Instance = null;
         }
 
         private DataTable GetDataTable(string requete)
         {
             DataTable _result;
-            snippets = new DataServices(_dsn, requete);
-            snippets.GetStructures();
-            _result = snippets.UtilityDataTable;
-            snippets.Dispose();
-            snippets = null;
+            oData = new DataServices(_dsn, requete);
+            oData.GetStructures();
+            _result = oData.UtilityDataTable;
+            oData.Dispose();
             return _result;
         }
 
         private DataRow GetDataRow(string requete)
         {
             DataRow _result;
-            snippets = new DataServices(_dsn, requete);
-            snippets.GetStructures();
-            _result = snippets.UtilityDataRow;
-            snippets.Dispose();
-            snippets = null;
+            oData = new DataServices(_dsn, requete);
+            oData.GetStructures();
+            _result = oData.UtilityDataRow;
+            oData.Dispose();
             return _result;
         }
 
         private void UpdateDatabase(string requete)
         {
-            snippets = new DataServices(_dsn, requete);
-            snippets.Execute(DataServices.ExecutionMode.UPDATE);
-            snippets.Dispose();
-            snippets = null;
+            oData = new DataServices(_dsn, requete);
+            oData.Execute(DataServices.ExecutionMode.UPDATE);
+            oData.Dispose();
         }
     }
 }

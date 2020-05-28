@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Net.Mail;
-using System.Threading.Tasks;
 using System.Data;
 
 namespace Utilitaires
@@ -44,11 +41,6 @@ namespace Utilitaires
         #endregion
         private void PrepareMessage(string personnaliseNom, string personnaliseUrl, string personnaliseAdresse)
         {
-            string _htmlText = MessageTemplate.Replace("<URL>", personnaliseUrl);
-            _htmlText = _htmlText.Replace("<NOM>", personnaliseNom);
-            _htmlText = _htmlText.Replace("<EMAIL>", personnaliseAdresse);
-            string _plainText = Html2Text(_htmlText);
-
             From = new MailAddress(MessageSender, MessageFrom);
             Sender = new MailAddress(MessageSender, MessageFrom);
             Headers.Add("Message-ID", "<" + MessageFrom + ">");
@@ -56,15 +48,20 @@ namespace Utilitaires
             Subject = MessageSubject;
             BodyEncoding = Encoding.GetEncoding(MessageEncoding);
             IsBodyHtml = true;
+            // Attachments;
 
-            var htmlView = AlternateView.CreateAlternateViewFromString(_htmlText);
-            htmlView.ContentType = new System.Net.Mime.ContentType("text/html;charset=utf-8");
-            htmlView.TransferEncoding = System.Net.Mime.TransferEncoding.Base64;
-            var textView = AlternateView.CreateAlternateViewFromString(_plainText);
-            textView.ContentType = new System.Net.Mime.ContentType("text/plain;charset=utf-8");
-            textView.TransferEncoding = System.Net.Mime.TransferEncoding.Base64;
-            AlternateViews.Add(textView);
-            AlternateViews.Add(htmlView);
+            string _htmlText = MessageTemplate.Replace("<URL>", personnaliseUrl);
+            _htmlText = _htmlText.Replace("<NOM>", personnaliseNom);
+            _htmlText = _htmlText.Replace("<EMAIL>", personnaliseAdresse);
+            ChargeAlternateView(_htmlText, "text/html;charset=utf-8");
+            ChargeAlternateView(Html2Text(_htmlText), "text/plain;charset=utf-8");
+        }
+        private void ChargeAlternateView(string text,string charset)
+        {
+            var View = AlternateView.CreateAlternateViewFromString(text);
+            View.ContentType = new System.Net.Mime.ContentType(charset);
+            View.TransferEncoding = System.Net.Mime.TransferEncoding.Base64;
+            AlternateViews.Add(View);
         }
 
         private void ChargeProprietes(DataTable _composants, string _composantNom)
@@ -81,10 +78,9 @@ namespace Utilitaires
         {
             string reponse = sourceHTML.Replace( "<br>", Environment.NewLine);
             reponse = reponse.Replace( "<br />", Environment.NewLine);
-            reponse = reponse.Replace("<p>", "");
             reponse = reponse.Replace("</p>", Environment.NewLine);
-            reponse = reponse.Replace("<div>", "");
             reponse = reponse.Replace("</div>", Environment.NewLine);
+            reponse.Replace( @"<[^>]*>", String.Empty); ;
             return reponse;
         }
 

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Utilitaires
 {
@@ -27,42 +23,42 @@ namespace Utilitaires
         /// <summary>
         /// Nom du composant message email utilisé
         /// </summary>
-        public string TransferEmailMessageName { get; set; }
+        public string TransferEmailMessageName;
 
         /// <summary>
         /// Nom du composant serveur de mail utilisé
         /// </summary>
-        public string TransferEmailServerName { get; set; }
+        public string TransferEmailServerName;
 
         /// <summary>
         /// Adresse de messagerie des destinataires en copie
         /// </summary>
-        public string TransferRecipientBcc { get; set; }
+        public string TransferRecipientBcc;
 
         /// <summary>
         /// Destinataires BCC dynamiques
         /// </summary>
-        public bool TransferRecipientBccDynamic { get; set; }
+        public bool TransferRecipientBccDynamic;
 
         /// <summary>
         /// Requête pour récupération des adresses de messagerie des destinataires en copie sous conditions
         /// </summary>
-        public string TransferRecipientBccSql { get; set; }
+        public string TransferRecipientBccSql;
 
         /// <summary>
         /// Adresses de messagerie des destinataires
         /// </summary>
-        public string TransferRecipientTo { get; set; }
+        public string TransferRecipientTo;
 
         /// <summary>
         /// Destinataires TO dynamiques
         /// </summary>
-        public bool TransferRecipientToDynamic { get; set; }
+        public bool TransferRecipientToDynamic;
 
         /// <summary>
         /// Requête pour récupération des adresses de messagerie des destinataires sous conditions
         /// </summary>
-        public string TransferRecipientToSql { get; set; }
+        public string TransferRecipientToSql;
 
         /// <summary>
         /// Envoi du message
@@ -76,7 +72,7 @@ namespace Utilitaires
             }
             else
             {
-                //_recipients = Strings.Split(TransferRecipientTo, "|");
+                _recipients = TransferRecipientTo.Split('|');
             }
 
             foreach (string _recipient in _recipients)
@@ -96,7 +92,7 @@ namespace Utilitaires
             }
             else
             {
-                //_recipients = Strings.Split(TransferRecipientBcc, "|");
+                _recipients = TransferRecipientBcc.Split('|');
             }
 
             foreach (string _recipient in _recipients)
@@ -117,9 +113,6 @@ namespace Utilitaires
             catch
             {
             }
-
-            _emailServer = null;
-            _emailMessage = null;
         }
 
         private void ChargeProprietes(DataTable _composants, string _composantNom)
@@ -136,43 +129,12 @@ namespace Utilitaires
 
         private string[] ChargeDestinataires(string _code)
         {
-            string[] ChargeDestinatairesRet = default;
-            var _emailCondition = Strings.Split(s_choix, "|");
-            string _req;
-            DataServices oData;
-            for (int i = 0; i <= 2; i++)
-            {
-                if (string.IsNullOrEmpty(_emailCondition[i]))
-                    _emailCondition[i] = "-";
-                else
-                    _emailCondition[i] = CleanQuotes(_emailCondition[i]);
-            }
-
-            _req = "select destinataire_emails from crmDESTINATAIRES WHERE destinataire_source='" + _code + "'";
-            _req += " and (destinataire_filtre1='" + _emailCondition[0] + "' or destinataire_filtre1='*')";
-            _req += " and (destinataire_filtre2='" + _emailCondition[1] + "' or destinataire_filtre2='*')";
-            _req += " and (destinataire_filtre3='" + _emailCondition[2] + "' or destinataire_filtre3='*')";
-            oData = new DataServices(s_dsn, _req);
-            oData.GetStructures();  
-            if (oData.UtilityDataExiste)
-            {
-               // ChargeDestinatairesRet = Strings.Split(oData.AdnDataField, "|");
-            }
-            else
-            {
-               // ChargeDestinatairesRet = Strings.Split("-", "|");
-            }
-
-            oData.Dispose();
-            oData = default;
-            return ChargeDestinatairesRet;
+            return null;
         }
 
         private string CleanQuotes(string _content)
         {
-            string CleanQuotesRet = default;
-           // CleanQuotesRet = Strings.Replace(_content, "'", "''");
-            return CleanQuotesRet;
+            return _content.Replace( "'", "''");
         }
 
     }

@@ -1,19 +1,15 @@
 var searchData=
 [
-  ['visiteur_5fanonyme_5fto_5fmember_94',['Visiteur_Anonyme_To_Member',['../class_utilitaires_1_1_session_tracking.html#a3f8e184506cf5334edb81a3f8af4caa4',1,'Utilitaires::SessionTracking']]],
-  ['visiteur_5fconfiguration_95',['Visiteur_Configuration',['../class_utilitaires_1_1_session_tracking.html#a722a13ec3f2b4be9755406bdbbf2284c',1,'Utilitaires::SessionTracking']]],
-  ['visiteur_5fdroits_5ffiltre_96',['Visiteur_Droits_Filtre',['../class_utilitaires_1_1_session_tracking.html#a42eedcd0f4430be1c43b3c667512d320',1,'Utilitaires::SessionTracking']]],
-  ['visiteur_5fenregistre_5fhit_97',['Visiteur_Enregistre_Hit',['../class_utilitaires_1_1_session_tracking.html#ad07d992aad124a21bacfacc3fb5ffcf9',1,'Utilitaires::SessionTracking']]],
-  ['visiteur_5fenregistre_5fvisite_98',['Visiteur_Enregistre_Visite',['../class_utilitaires_1_1_session_tracking.html#ab404c99f71c19feb6b85ca20e0e775f1',1,'Utilitaires::SessionTracking']]],
-  ['visiteuraddress_99',['VisiteurAddress',['../class_utilitaires_1_1_session_tracking.html#a4e101e04bef397c179e59079748feef6',1,'Utilitaires::SessionTracking']]],
-  ['visiteurbrowser_100',['VisiteurBrowser',['../class_utilitaires_1_1_session_tracking.html#a80f3f8d979ab99951fdec97360b270e7',1,'Utilitaires::SessionTracking']]],
-  ['visiteurdroits_101',['VisiteurDroits',['../class_utilitaires_1_1_session_tracking.html#ae4477b7edf0d724e43416bdce9c40498',1,'Utilitaires::SessionTracking']]],
-  ['visiteurdsn_102',['VisiteurDsn',['../class_utilitaires_1_1_session_tracking.html#a4807e1abe7093a46077acd25cf9cc0c9',1,'Utilitaires::SessionTracking']]],
-  ['visiteurhomepage_103',['VisiteurHomePage',['../class_utilitaires_1_1_session_tracking.html#a7a5af5215b1fe50a88e3a7833361c633',1,'Utilitaires::SessionTracking']]],
-  ['visiteurid_104',['VisiteurId',['../class_utilitaires_1_1_session_tracking.html#a6b8dceed92f997728ba41a31a5177474',1,'Utilitaires::SessionTracking']]],
-  ['visiteurlangue_105',['VisiteurLangue',['../class_utilitaires_1_1_session_tracking.html#a414155e17f0336c55de1598460cf942e',1,'Utilitaires::SessionTracking']]],
-  ['visiteurprofil_106',['VisiteurProfil',['../class_utilitaires_1_1_session_tracking.html#a249e843e80d435eb69c1d883624cae9b',1,'Utilitaires::SessionTracking']]],
-  ['visiteursite_107',['VisiteurSite',['../class_utilitaires_1_1_session_tracking.html#a91ac295b5a529c91ef4390f68ad5bfe6',1,'Utilitaires::SessionTracking']]],
-  ['visiteuruseragent_108',['VisiteurUserAgent',['../class_utilitaires_1_1_session_tracking.html#ade078cc1a796410a870fa4d79cb0e19a',1,'Utilitaires::SessionTracking']]],
-  ['visiteurvisiteid_109',['VisiteurVisiteId',['../class_utilitaires_1_1_session_tracking.html#a85456311276f0508b0ba6b14f1a2a74b',1,'Utilitaires::SessionTracking']]]
+  ['s_5fchoix_103',['s_choix',['../class_utilitaires_1_1_email_transfer.html#a9f7ede243decf61ec23961b41da819ee',1,'Utilitaires::EmailTransfer']]],
+  ['s_5fdsn_104',['s_dsn',['../class_utilitaires_1_1_email_transfer.html#abe99ef7973184b2fc84c11fd06215672',1,'Utilitaires::EmailTransfer']]],
+  ['serverlogin_105',['ServerLogin',['../class_utilitaires_1_1_email_server.html#aeaccfa113810220f1e81dedbdfc2d071',1,'Utilitaires::EmailServer']]],
+  ['servername_106',['ServerName',['../class_utilitaires_1_1_email_server.html#a712d5b1d122748f4cef3f6bde5beca8f',1,'Utilitaires::EmailServer']]],
+  ['serverpassword_107',['ServerPassword',['../class_utilitaires_1_1_email_server.html#ae78ec567b9af82e70efd859e47190dfe',1,'Utilitaires::EmailServer']]],
+  ['serverport_108',['ServerPort',['../class_utilitaires_1_1_email_server.html#aa38b472fd1ec4fbf978596e663fcab3e',1,'Utilitaires::EmailServer']]],
+  ['serverprivacy_109',['ServerPrivacy',['../class_utilitaires_1_1_email_server.html#ae80824e9a6559434df3a8cda41e7b4f2',1,'Utilitaires::EmailServer']]],
+  ['sessiontracking_110',['SessionTracking',['../class_utilitaires_1_1_session_tracking.html',1,'Utilitaires']]],
+  ['sessiontracking_2ecs_111',['SessionTracking.cs',['../_session_tracking_8cs.html',1,'']]],
+  ['snippets_112',['Snippets',['../class_utilitaires_1_1_snippets.html',1,'Utilitaires.Snippets'],['../class_utilitaires_1_1_snippets.html#ab4350b111bcfe7dd154f1ddcacb13339',1,'Utilitaires.Snippets.Snippets()'],['../class_utilitaires_1_1_email_message.html#a73ac73772a77a50dfd84f066a9e3f266',1,'Utilitaires.EmailMessage.snippets()'],['../class_utilitaires_1_1_email_server.html#ad515734c529f72925e26f81ad880021f',1,'Utilitaires.EmailServer.snippets()'],['../class_utilitaires_1_1_email_tracking.html#acd27adcda34e37314132d02ea395f433',1,'Utilitaires.EmailTracking.snippets()'],['../class_utilitaires_1_1_email_transfer.html#ad7b23a4b3be356c7b21435ecd8c61bad',1,'Utilitaires.EmailTransfer.snippets()']]],
+  ['snippets_2ecs_113',['Snippets.cs',['../_snippets_8cs.html',1,'']]],
+  ['sqldatareader_114',['SqlDataReader',['../class_utilitaires_1_1_data_services.html#aff33004bb340cdece9b9aa5f29565f1b',1,'Utilitaires::DataServices']]]
 ];

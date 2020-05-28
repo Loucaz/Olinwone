@@ -1,13 +1,14 @@
 var indexSectionsWithContent =
 {
-  0: "_abcdegilopqsuv",
-  1: "ads",
+  0: "_abcdeghilmopqstuv",
+  1: "ades",
   2: "u",
-  3: "ads",
-  4: "abcdegilpsuv",
-  5: "_dlopqsuv",
+  3: "ades",
+  4: "abcdeghilpsuv",
+  5: "_dlmopqsuv",
   6: "e",
-  7: "diu"
+  7: "diu",
+  8: "t"
 };
 
 var indexSectionNames =
@@ -19,7 +20,8 @@ var indexSectionNames =
   4: "functions",
   5: "variables",
   6: "enums",
-  7: "enumvalues"
+  7: "enumvalues",
+  8: "properties"
 };
 
 var indexSectionLabels =
@@ -31,6 +33,7 @@ var indexSectionLabels =
   4: "Fonctions",
   5: "Variables",
   6: "Énumérations",
-  7: "Valeurs énumérées"
+  7: "Valeurs énumérées",
+  8: "Propriétés"
 };
 

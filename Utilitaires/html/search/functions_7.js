@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['listesderoulantes_152',['ListesDeroulantes',['../class_utilitaires_1_1_data_tables.html#a099ce155cbc2c2deca41a64b8be93e5d',1,'Utilitaires::DataTables']]]
+  ['imagedisplay_215',['ImageDisplay',['../class_utilitaires_1_1_snippets.html#a2d39c890ef98ed7abccf407d918c2052',1,'Utilitaires::Snippets']]],
+  ['init_216',['Init',['../class_utilitaires_1_1_email_tracking.html#a206f61d102bb3c95444c24acb604a6db',1,'Utilitaires::EmailTracking']]]
 ];

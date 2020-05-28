@@ -100,7 +100,7 @@ Attributs publics</h2></td></tr>
 <tr class="memitem:a720c38439a9ab7ab1393744f6efa7e86"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_d_b_query.html#a720c38439a9ab7ab1393744f6efa7e86">QcmsCONTENT_HIT</a> = &quot;SELECT * FROM cmsCONTENT_HIT where content_hit=0&quot;</td></tr>
 <tr class="memdesc:a720c38439a9ab7ab1393744f6efa7e86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge le squelette de la database cmsCONTENT_HIT.  <a href="class_utilitaires_1_1_d_b_query.html#a720c38439a9ab7ab1393744f6efa7e86">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a720c38439a9ab7ab1393744f6efa7e86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b9fd623b636ab8d3a354d90b65949d4"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_d_b_query.html#a0b9fd623b636ab8d3a354d90b65949d4">QcmsCONTENT_HIT_Update</a> = &quot;INSERT INTO cmsCONTENT_HIT(hit_date, hit_content, hit_user) values(convert(datetime,'@DATE',103),@CONTENT,@USER)&quot;</td></tr>
+<tr class="memitem:a0b9fd623b636ab8d3a354d90b65949d4"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_d_b_query.html#a0b9fd623b636ab8d3a354d90b65949d4">QcmsCONTENT_HIT_Update</a> = &quot;INSERT INTO cmsCONTENT_HIT(hit_date, hit_content, hit_user) values(convert(datetime,@DATE,103),@CONTENT,@USER)&quot;</td></tr>
 <tr class="memdesc:a0b9fd623b636ab8d3a354d90b65949d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met a jour la database cmsCONTENT_HIT.  <a href="class_utilitaires_1_1_d_b_query.html#a0b9fd623b636ab8d3a354d90b65949d4">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a0b9fd623b636ab8d3a354d90b65949d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -146,7 +146,7 @@ Attributs publics</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">string Utilitaires.DBQuery.QcmsCONTENT_HIT_Update = &quot;INSERT INTO cmsCONTENT_HIT(hit_date, hit_content, hit_user) values(convert(datetime,'@DATE',103),@CONTENT,@USER)&quot;</td>
+          <td class="memname">string Utilitaires.DBQuery.QcmsCONTENT_HIT_Update = &quot;INSERT INTO cmsCONTENT_HIT(hit_date, hit_content, hit_user) values(convert(datetime,@DATE,103),@CONTENT,@USER)&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
