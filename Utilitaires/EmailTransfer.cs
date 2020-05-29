@@ -126,10 +126,38 @@ namespace Utilitaires
             TransferRecipientToDynamic = Convert.ToBoolean(snippets.ChargeAttribut("TransferRecipientToDynamic", _composants, _composantNom));
             TransferRecipientToSql = snippets.ChargeAttribut("TransferRecipientToSql", _composants, _composantNom);
         }
-
         private string[] ChargeDestinataires(string _code)
         {
-            return null;
+            string[] _emailCondition = s_choix.Split('|');
+            string _req;
+            DataServices oData;
+            for (int i = 0; i <= 2; i++)
+            {
+                if (string.IsNullOrEmpty(_emailCondition[i]))
+                    _emailCondition[i] = "-";
+                else
+                    _emailCondition[i] = CleanQuotes(_emailCondition[i]);
+            }
+
+            _req = "select destinataire_emails from crmDESTINATAIRES WHERE destinataire_source='" + _code + "'";
+            _req += " and (destinataire_filtre1='" + _emailCondition[0] + "' or destinataire_filtre1='*')";
+            _req += " and (destinataire_filtre2='" + _emailCondition[1] + "' or destinataire_filtre2='*')";
+            _req += " and (destinataire_filtre3='" + _emailCondition[2] + "' or destinataire_filtre3='*')";
+            oData = new DataServices(s_dsn, _req);
+            oData.GetStructures();
+            string[] result;
+            if (oData.UtilityDataExiste)
+            {
+                result = oData.UtilityDataField.ToString().Split('|');
+            }
+            else
+            {
+                //A verifier ????
+                result = "-".Split('|');
+            }
+
+            oData.Dispose();
+            return result;
         }
 
         private string CleanQuotes(string _content)
