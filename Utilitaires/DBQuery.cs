@@ -47,5 +47,25 @@ namespace Utilitaires
         */
         public string QcmsCONTENT_HIT_Update = "INSERT INTO cmsCONTENT_HIT(hit_date, hit_content, hit_user) values(convert(datetime,@DATE,103),@CONTENT,@USER)";
 
+        /**
+        * \brief Verifie si le referer de l'url de page existe
+        */
+        public string QwmsREFERER_existe = "SELECT referer_id FROM wmsREFERER WHERE referer_url LIKE @REFERER";
+
+        /**
+        * \brief Met a jour la database wmsREFERER_Update
+        */
+        public string QwmsREFERER_Update = "INSERT INTO wmsREFERER (referer_url,referer_domaine,referer_site) VALUES (@REFERER,@DOMAINE,@SITE)";
+
+        /**
+       * \brief Charge le squelette de la database wmsHITS
+       */
+        public string QwmsHITS = "SELECT * FROM wmsHITS where hit_id=0";
+
+        /**
+        * \brief Met a jour la database wmsHITS
+        */
+        public string QwmsHITS_Update = "INSERT INTO wmsHITS (hit_date,referer_id,visite_id,page_id, hit_url) VALUES (@DATE,@REFERER,@SESSION,@RUBRIQUE,@URL)";
+
     }
 }

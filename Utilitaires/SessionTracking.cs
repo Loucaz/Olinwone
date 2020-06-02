@@ -67,6 +67,16 @@ namespace Utilitaires
           */
         public DataTable VisiteurDroits;
 
+        /**
+ * \brief Page vue par le visiteur
+ */
+        public int VisiteurPage;
+
+        /**
+ * \brief URL vivitée
+ */
+        public int VisiteurPageURL;
+
         #endregion
 
         #region "Actions"
@@ -179,10 +189,54 @@ namespace Utilitaires
         #region "Enregistrement des pages vues"
 
    
-        public void Visiteur_Enregistre_Hit(string _referer, string _domaine)
-            { 
-        
+        public DataSet Visiteur_Enregistre_Hit(DataSet dataSet, string _referer, string _domaine)
+            {
+
+            try
+            {
+                //récupérer le dataset
+                //Traitement de la table [0] wmsREFERER
+                //identifier la ligne qui correspond à _referer et la mettre à jour
+                int referer_id = -1;
+                bool exist = false;
+                foreach (DataRow ligne in dataSet.Tables[0].Rows)
+                {
+                    if ((string)ligne["referer_url"] == _referer)
+                    {
+                        referer_id = (int)ligne["referer_id"];
+                        exist = true;
+                    }
+                }
+                if (exist == false)
+                {
+                    DataRow r = dataSet.Tables[0].NewRow();
+                    r["referer_url"] = _referer;
+                    r["referer_domaine"] = _domaine;
+                    r["referer_site"] = VisiteurSite;
+                    dataSet.Tables[0].Rows.Add(r);
+                }
+
+
+                //traitement de la table [1] : wmsHITS
+                //création d'une nouvelle ligne
+                //insertion de cette nouvelle ligne dans la table
+                //mise à jour du dataset
+                DataRow row = dataSet.Tables[1].NewRow();
+                row["hit_date"] = DateTime.Now;
+                row["referer_id"] = referer_id;
+                row["visite_id"] = VisiteurVisiteId;
+                row["page_id"] = VisiteurPage;
+                row["hit_url"] = VisiteurPageURL;
+                dataSet.Tables[1].Rows.Add(row);
             }
+            catch (Exception err)
+            {
+                Console.WriteLine(err.Message);
+            }
+
+
+            return dataSet;
+        }
 
 
         #endregion

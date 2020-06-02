@@ -16,7 +16,7 @@ namespace Website2
             if (!IsPostBack)
             {
                 Snippets snippets = new Snippets();
-                Session["dataSet"] = snippets.UpdateInfoHits((DataSet)Session["dataSet"], 6, 42);
+                Session["UpdateInfoHits"] = snippets.UpdateInfoHits((DataSet)Session["UpdateInfoHits"], 6, 42);
             }
         }
         public void button(object sender, EventArgs e)

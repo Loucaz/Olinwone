@@ -28,8 +28,8 @@ namespace Website2
             //récupère l'id de user
             
             Snippets snippets = new Snippets();
-            DataSet dataSet = new DataSet();
 
+            DataSet dataSet = new DataSet();
 
             DBQuery DBQuery=new DBQuery();
         //démarrage de la session :création du dataset avec les tables vides au démarrage de la session du user
@@ -38,14 +38,14 @@ namespace Website2
         DataTables dataTable = new DataTables(dsn);
             dataSet.Tables.Add(dataTable.ChargeTable(DBQuery.QcmsINFO));
             dataSet.Tables.Add(dataTable.ChargeTable(DBQuery.QcmsCONTENT_HIT));
-            Session["dataSet"] = dataSet;
+            Session["UpdateInfoHits"] = dataSet;
 
         }
 
         void Session_End(object sender, EventArgs e)
         {
 
-            DataSet dataSet = (DataSet) Session["dataSet"];
+            DataSet dataSet = (DataSet) Session["UpdateInfoHits"];
             DataServices dataS;
             DBQuery DBQuery = new DBQuery();
             foreach (DataRow row in dataSet.Tables[0].Rows)

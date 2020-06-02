@@ -93,7 +93,7 @@ namespace Utilitaires
                 bool exist = false;
                 foreach (DataRow ligne in dataSet.Tables[0].Rows)
                 {
-                    if ((int) ligne[0] == info_id)
+                    if ((int) ligne["info_id"] == info_id)
                     {
                         ligne["info_hits"] = (int) ligne["info_hits"] + 1;
                         exist = true;
