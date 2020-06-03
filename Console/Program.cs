@@ -15,6 +15,18 @@ namespace Consol
         static void Main(string[] args)
         {
             string dsn = ConfigurationManager.AppSettings["dsn"];
+            DataServices ds = new DataServices(dsn, "Visiteur_Enregistre_Hit");
+            ds.UtilitySqlCommand.CommandType = CommandType.StoredProcedure;
+            ds.AddParameter("@referer", SqlDbType.VarChar, 255, ParameterDirection.Input, "url11", "test");
+            ds.AddParameter("@domaine", SqlDbType.VarChar, 255, ParameterDirection.Input, "testurl", "test");
+            ds.AddParameter("@site", SqlDbType.Int, 255, ParameterDirection.Input, 7, "test");
+            ds.AddParameter("@date", SqlDbType.DateTime, 255, ParameterDirection.Input, "2020-06-03", "test");
+            ds.AddParameter("@session", SqlDbType.Int, 255, ParameterDirection.Input, 7, "test");
+            ds.AddParameter("@rubrique", SqlDbType.Int, 255, ParameterDirection.Input, 7, "test");
+            ds.AddParameter("@url", SqlDbType.VarChar, 255, ParameterDirection.Input, "url2", "test");
+            ds.UtilitySqlCommand.ExecuteReader();
+
+            /*
             Snippets snippets= new Snippets();
             DataSet dataSet = new DataSet();
 
@@ -55,7 +67,7 @@ namespace Consol
                 }
             }
 
-
+            */
         }
 
     }
