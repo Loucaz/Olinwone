@@ -4,59 +4,79 @@ using System.Data;
 
 namespace Utilitaires
 {
-
+    //////////////////////////////////////////////////
+    /// @class DataTables
+    /// @par Description
+    /// @note Note
+    //////////////////////////////////////////////////
     public class DataTables
     {
         private string _dsn;
         private DataServices oData;
         private DBQuery DBQuery;
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public DataTables(string dsn)
         {
             _dsn = dsn;
             DBQuery = new DBQuery();
         }
-        /**
-         * \brief Charge les collections du site actif
-         * \param _site Site actif
-         * \return DataTable
-         */
+
+        //////////////////////////////////////////////////
+        /// \brief Charge les collections du site actif
+        /// \param _site Site actif
+        /// \return DataTable
+        //////////////////////////////////////////////////
         public DataTable ListesDeroulantes(int _site)
         {
             return ChargeTable(DBQuery.QCollection, _site, "site_id");
         }
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public DataTable CollectionADNForm(int _site, int _siteActif)
         {
             ChangeVariable("listes", _siteActif);
             return ChargeTable(DBQuery.QCollection, _site, "site_id");
         }
-        /**
-         * \brief Charge la liste des composants pour le site actif
-         */
+
+        //////////////////////////////////////////////////
+        /// @brief Charge la liste des composants pour le site actif
+        //////////////////////////////////////////////////
         public DataTable ComposantsADN(int _site, int _siteActif)
         {
             return ChargeTable(DBQuery.QComposant, _site, "composant_site");
         }
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public DataTable ComposantsADNForm(int _site, int _siteActif)
         {
             ChangeVariable("composants", _siteActif);
             return ChargeTable(DBQuery.QComposant, _site, "composant_site");
         }
-        /**
-         * \brief Appelle données d'une table ADN
-         */
+
+        //////////////////////////////////////////////////
+        /// @brief Appelle données d'une table ADN
+        //////////////////////////////////////////////////
         public DataTable DataTableADN(int _site, string _table, string _champ)
         {
             return ChargeTable("SELECT * FROM " + _table + " WHERE " + _champ + "=@SITE", _site, _champ);
         }
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public DataTable DataTableADNForm(int _site, string _table, string _champ, int _siteActif)
         {
             AnalyseVariable(_table, _siteActif);
             return ChargeTable("SELECT * FROM " + _table + " WHERE " + _champ + "=@SITE", _site, _champ);
         }
-        /**
-         * \brief Charge la table avec les données attendues
-         */
+
+        //////////////////////////////////////////////////
+        /// @brief Charge la table avec les données attendues
+        //////////////////////////////////////////////////
         private DataTable Charge(string _requete, int _site = -1, string _champ = null)
         {
             oData = new DataServices(_dsn, _requete);
@@ -73,18 +93,30 @@ namespace Utilitaires
             }
             return oData.UtilityDataTable;
         }
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public DataTable ChargeTable(string _requete)
         {
             return Charge(_requete);
         }
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public DataTable ChargeTableForm(string _requete, int _site)
         {
             return Charge(_requete, _site);
         }
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private DataTable ChargeTable(string _requete, int _site, string _champ)
         {
             return Charge(_requete, _site, _champ);
         }
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private void ChangeVariable(string _var, int _site)
         {
             oData = new DataServices(_dsn, DBQuery.QVariable);
@@ -93,6 +125,9 @@ namespace Utilitaires
             oData.Execute(DataServices.ExecutionMode.UPDATE);
             oData.Dispose();
         }
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private void AnalyseVariable(string _table, int _site)
         {
             switch (_table)
@@ -124,6 +159,10 @@ namespace Utilitaires
             }
         }
 
+
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public void UpdateDatabase(DataTable dataTable,string requete, DataServices.ExecutionMode executionMode)
         {
             DataServices dataS;

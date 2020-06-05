@@ -3,6 +3,11 @@ using System.Data;
 
 namespace Utilitaires
 {
+    //////////////////////////////////////////////////
+    /// @class EmailTransfer
+    /// @par Description
+    /// @note Note
+    //////////////////////////////////////////////////
     public partial class EmailTransfer
     {
         private Snippets snippets = new Snippets();
@@ -11,6 +16,9 @@ namespace Utilitaires
         private string s_choix;
         private string s_dsn;
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public EmailTransfer(string _composant, DataTable _composants, string _nom, string _url, string _adresse, string _option, string _dsn)
         {
             s_choix = _option;
@@ -20,49 +28,49 @@ namespace Utilitaires
             _emailServer = new EmailServer(TransferEmailServerName, _composants);
         }
 
-        /// <summary>
-        /// Nom du composant message email utilisé
-        /// </summary>
+        //////////////////////////////////////////////////
+        /// @brief Nom du composant message email utilisé
+        //////////////////////////////////////////////////
         public string TransferEmailMessageName;
 
-        /// <summary>
-        /// Nom du composant serveur de mail utilisé
-        /// </summary>
+        //////////////////////////////////////////////////
+        /// @brief Nom du composant serveur de mail utilisé
+        //////////////////////////////////////////////////
         public string TransferEmailServerName;
 
-        /// <summary>
-        /// Adresse de messagerie des destinataires en copie
-        /// </summary>
+        //////////////////////////////////////////////////
+        /// @brief Adresse de messagerie des destinataires en copie
+        //////////////////////////////////////////////////
         public string TransferRecipientBcc;
 
-        /// <summary>
-        /// Destinataires BCC dynamiques
-        /// </summary>
+        //////////////////////////////////////////////////
+        /// @brief Destinataires BCC dynamiques
+        //////////////////////////////////////////////////
         public bool TransferRecipientBccDynamic;
 
-        /// <summary>
-        /// Requête pour récupération des adresses de messagerie des destinataires en copie sous conditions
-        /// </summary>
+        //////////////////////////////////////////////////
+        /// @brief Requête pour récupération des adresses de messagerie des destinataires en copie sous conditions
+        //////////////////////////////////////////////////
         public string TransferRecipientBccSql;
 
-        /// <summary>
-        /// Adresses de messagerie des destinataires
-        /// </summary>
+        //////////////////////////////////////////////////
+        /// @brief Adresses de messagerie des destinataires
+        //////////////////////////////////////////////////
         public string TransferRecipientTo;
 
-        /// <summary>
-        /// Destinataires TO dynamiques
-        /// </summary>
+        //////////////////////////////////////////////////
+        /// @brief Destinataires TO dynamiques
+        //////////////////////////////////////////////////
         public bool TransferRecipientToDynamic;
 
-        /// <summary>
-        /// Requête pour récupération des adresses de messagerie des destinataires sous conditions
-        /// </summary>
+        //////////////////////////////////////////////////
+        /// @brief Requête pour récupération des adresses de messagerie des destinataires sous conditions
+        //////////////////////////////////////////////////
         public string TransferRecipientToSql;
 
-        /// <summary>
-        /// Envoi du message
-        /// </summary>
+        //////////////////////////////////////////////////
+        /// @brief Envoi du message
+        //////////////////////////////////////////////////
         public void EnvoieMessage()
         {
             string[] _recipients;
@@ -115,6 +123,9 @@ namespace Utilitaires
             }
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private void ChargeProprietes(DataTable _composants, string _composantNom)
         {
             TransferEmailMessageName = snippets.ChargeAttribut("TransferEmailMessageName", _composants, _composantNom);
@@ -126,6 +137,9 @@ namespace Utilitaires
             TransferRecipientToDynamic = Convert.ToBoolean(snippets.ChargeAttribut("TransferRecipientToDynamic", _composants, _composantNom));
             TransferRecipientToSql = snippets.ChargeAttribut("TransferRecipientToSql", _composants, _composantNom);
         }
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private string[] ChargeDestinataires(string _code)
         {
             string[] _emailCondition = s_choix.Split('|');
@@ -160,6 +174,9 @@ namespace Utilitaires
             return result;
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private string CleanQuotes(string _content)
         {
             return _content.Replace( "'", "''");

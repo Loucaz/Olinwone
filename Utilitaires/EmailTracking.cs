@@ -5,6 +5,11 @@ using System.Web;
 
 namespace Utilitaires
 {
+    //////////////////////////////////////////////////
+    /// @class EmailTracking
+    /// @par Description
+    /// @note Note
+    //////////////////////////////////////////////////
     public class EmailTracking : IHttpModule
     {
         private DataServices oData;
@@ -12,15 +17,24 @@ namespace Utilitaires
         private string _dsn;
 
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public void Dispose()
         {
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public void Init(HttpApplication Appl)
         {
             Appl.BeginRequest += GetURL_BeginRequest;
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public void GetURL_BeginRequest(object sender, EventArgs args)
         {
             HttpApplication Instance = (HttpApplication)sender;
@@ -77,6 +91,9 @@ namespace Utilitaires
             }
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private DataTable GetDataTable(string requete)
         {
             DataTable _result;
@@ -87,6 +104,9 @@ namespace Utilitaires
             return _result;
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private DataRow GetDataRow(string requete)
         {
             DataRow _result;
@@ -97,6 +117,9 @@ namespace Utilitaires
             return _result;
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private void UpdateDatabase(string requete)
         {
             oData = new DataServices(_dsn, requete);

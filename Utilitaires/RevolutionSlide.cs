@@ -3,17 +3,24 @@ using System.Data;
 
 namespace Utilitaires
 {
-
-    public partial class RevolutionSlide
+    //////////////////////////////////////////////////
+    /// @class RevolutionSlide
+    /// @par Description
+    /// @note Note
+    //////////////////////////////////////////////////
+    public class RevolutionSlide
     {
         private DataTable SlideData = new DataTable();
         private DataTable layers = new DataTable();
 
-        /// <summary>
-        /// Code HTML du slide à retenir
-        /// </summary>
+        //////////////////////////////////////////////////
+        /// @brief Code HTML du slide à retenir
+        //////////////////////////////////////////////////
         public string HtmlCode;
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public RevolutionSlide(string _slide, string _dsn)
         {
             SlideData = Charge("select * from wmsCOMPOSANT_ATTRIBUT WHERE composant_id=" + _slide, _dsn);
@@ -22,6 +29,9 @@ namespace Utilitaires
         }
 
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private DataTable Charge(string _slide, string _dsn)
         {
             var oData = new DataServices(_dsn, _slide);
@@ -31,6 +41,9 @@ namespace Utilitaires
             return dataTable;
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private string SlideAttribut(string _rsProperty, string _owProperty)
         {
             string _valeur = SlideData.Select("parametre_nom='" + _owProperty + "'")[0]["parametre_valeur"].ToString();
@@ -40,6 +53,9 @@ namespace Utilitaires
                 return null;
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private void SlideHtml(string _dsn)
         {
             RevolutionLayer newLayer;

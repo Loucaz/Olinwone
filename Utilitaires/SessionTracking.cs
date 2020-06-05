@@ -6,14 +6,19 @@ using System.Web;
 
 namespace Utilitaires
 {
-    class SessionTracking
+    //////////////////////////////////////////////////
+    /// @class SessionTracking
+    /// @par Description
+    /// @note Note
+    //////////////////////////////////////////////////
+    public class SessionTracking
     {
         #region "Propriétés"
 
         private int _config_id;
 
         /**
-         * \brief  Adresse IP du visiteur
+         * \brief  Adresse IP du visiteur ta mere la puta
          */
         public String VisiteurAddress;
 
@@ -83,6 +88,9 @@ namespace Utilitaires
 
         #region "Enregistrement des visites et des configurations"
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public void Visiteur_Configuration()
         {
             string req = "SELECT config_id FROM wmsUSERAGENT WHERE config_useragent=@USERAGENT";
@@ -114,6 +122,9 @@ namespace Utilitaires
             oData.Dispose();
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public void Visiteur_Enregistre_Visite(string _session)
         {
             string pays_nom;
@@ -167,6 +178,9 @@ namespace Utilitaires
 
 
         }
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public void Visiteur_Anonyme_To_Member(int memberid, int visiteid) {
 
             String req = "UPDATE wmsVISITE SET visiteur_id=@VISITEUR where visite_id=@SESSIONADN";
@@ -188,10 +202,13 @@ namespace Utilitaires
 
         #region "Enregistrement des pages vues"
 
-   
+
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public DataSet Visiteur_Enregistre_Hit(DataSet dataSet, string _referer, string _domaine)
             {
-
+            /*
             try
             {
                 //récupérer le dataset
@@ -234,7 +251,7 @@ namespace Utilitaires
                 Console.WriteLine(err.Message);
             }
 
-
+            */
             return dataSet;
         }
 
@@ -244,6 +261,9 @@ namespace Utilitaires
 
         #region "Gestion du profil"
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public string Visiteur_Droits_Filtre()
         {
             DataTable oDroits = VisiteurDroits;
@@ -254,6 +274,9 @@ namespace Utilitaires
             string _csvFormat = oBuilder.ToString();
             return _csvFormat.Substring(_csvFormat.Length - 4);
         }
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public void Profil_Visiteur(int _visiteur, string _langue, int _profil)
         {
             VisiteurId = _visiteur;
@@ -261,6 +284,9 @@ namespace Utilitaires
             VisiteurProfil = _profil;
             VisiteurDroits = Charge_Profil_Visiteur();
         }
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public void Profil_Visiteur(DataRow _visiteurData)
         {
             VisiteurId = (int) _visiteurData["public_id"];
@@ -269,6 +295,9 @@ namespace Utilitaires
             VisiteurDroits = Charge_Profil_Visiteur();
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private DataTable Charge_Profil_Visiteur()
         {
             DataTable oDroits = new DataTable();
@@ -290,6 +319,9 @@ namespace Utilitaires
             return oDroits;
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private string Charge_Visiteur_Homepage()
         {
             string _accueil = "/";

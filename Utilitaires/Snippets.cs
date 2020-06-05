@@ -9,36 +9,59 @@ using System.Threading.Tasks;
 
 namespace Utilitaires
 {
+    //////////////////////////////////////////////////
+    /// @class Snippets
+    /// @par Description
+    /// @note Note
+    //////////////////////////////////////////////////
     public class Snippets
     {
         #region "Méthodes et fonctions publiques"
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public Snippets() { }
 
         #region "Calcules"
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public string EncodageHash(string source) 
         {
             SHA512 sha512Hash = SHA512.Create();
             return Convert.ToBase64String(sha512Hash.ComputeHash(Encoding.UTF8.GetBytes(source)));
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public int UnixTimestamp(DateTime thisDate)
         {
             return (int)thisDate.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public static string Base64Encode(string plainText)
         {
             return Convert.ToBase64String(Encoding.UTF8.GetBytes(plainText));
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public static string Base64Decode(string base64EncodedData)
         {
             return Encoding.UTF8.GetString(Convert.FromBase64String(base64EncodedData));
         }
 
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public string CompleteRequete(string chaine, Dictionary<string,string> dictionary)
         {
             string pattern = @"<\s*[^>]*>";
@@ -53,11 +76,17 @@ namespace Utilitaires
         #endregion
 
         #region "URL"
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public string UrlRoute(string url, string hote)
         {
             return url.Replace("http://", "").Replace("https://", "").Replace(hote + "/", "");
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public string UrlUtile(string url, string hote)
         {
             string _cleanUrl = UrlRoute(url, hote);
@@ -78,6 +107,9 @@ namespace Utilitaires
         #endregion
 
         #region "Update database"
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public DataSet UpdateInfoHits(DataSet dataSet, int info_id,int user_id)
         {
             //côté console
@@ -135,6 +167,9 @@ namespace Utilitaires
         #endregion
 
         #region "Snippets"
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public string ImageDisplay(string imgID, string imgUrl)
         {
             if (imgUrl == "") {
@@ -143,6 +178,9 @@ namespace Utilitaires
             return "<img id='"+ imgID +"' onerror=adnImage('" + imgID + "') src='" + imgUrl + "' class='img-fluid' alt='' />";
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public string ChargeAttribut(String prop, DataTable components, String componentId)
         {
             if(componentId.IndexOf("AdnResponsive") > 0)

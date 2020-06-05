@@ -5,11 +5,19 @@ using System.Data;
 
 namespace Utilitaires
 {
-    public  class EmailMessage : MailMessage
+    //////////////////////////////////////////////////
+    /// @class EmailMessage
+    /// @par Description
+    /// @note Note
+    //////////////////////////////////////////////////
+    public class EmailMessage : MailMessage
     {
         private Snippets snippets = new Snippets();
 
         #region "Constructeur"
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public EmailMessage(string _composant, DataTable _composants, string _nom, string _url, string _adresse)
         {
             ChargeProprietes(_composants, _composant);
@@ -32,13 +40,22 @@ namespace Utilitaires
 */
         public string MessageSender;
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public string MessageSubject;
 
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public string MessageTemplate;
 
 
         #endregion
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private void PrepareMessage(string personnaliseNom, string personnaliseUrl, string personnaliseAdresse)
         {
             From = new MailAddress(MessageSender, MessageFrom);
@@ -56,6 +73,9 @@ namespace Utilitaires
             ChargeAlternateView(_htmlText, "text/html;charset=utf-8");
             ChargeAlternateView(Html2Text(_htmlText), "text/plain;charset=utf-8");
         }
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private void ChargeAlternateView(string text,string charset)
         {
             var View = AlternateView.CreateAlternateViewFromString(text);
@@ -64,6 +84,9 @@ namespace Utilitaires
             AlternateViews.Add(View);
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private void ChargeProprietes(DataTable _composants, string _composantNom)
         {
             MessageEncoding = snippets.ChargeAttribut("MessageEncoding", _composants, _composantNom);
@@ -74,6 +97,9 @@ namespace Utilitaires
         }
 
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private string Html2Text(string sourceHTML)
         {
             string reponse = sourceHTML.Replace( "<br>", Environment.NewLine);

@@ -2,22 +2,32 @@
 
 namespace Utilitaires
 {
-
-    public partial class RevolutionLayer
+    //////////////////////////////////////////////////
+    /// @class RevolutionLayer
+    /// @par Description
+    /// @note Note
+    //////////////////////////////////////////////////
+    public class RevolutionLayer
     {
         private DataTable LayerData = new DataTable();
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         public RevolutionLayer(string _layer, string _dsn)
         {
             ChargeData(_layer, _dsn);
             LayerHtml();
         }
 
-        /// <summary>
-        /// Code HTML du layer à retenir
-        /// </summary>
+        //////////////////////////////////////////////////
+        /// @brief Code HTML du layer à retenir
+        //////////////////////////////////////////////////
         public string HtmlCode;
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private void ChargeData(string _layer, string _dsn)
         {
             var oData = new DataServices(_dsn, "select * from wmsCOMPOSANT_ATTRIBUT WHERE composant_id=" + _layer);
@@ -26,6 +36,9 @@ namespace Utilitaires
             oData.Dispose();
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private string LayerAttribut(string _rsProperty, string _owProperty)
         {
             string _valeur = LayerData.Select("parametre_nom='" + _owProperty + "'")[0]["parametre_valeur"].ToString();
@@ -35,6 +48,9 @@ namespace Utilitaires
                 return null;
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private string LayerAttributSpecial(string _rsProperty, string _owProperty)
         {
             string _valeur = LayerData.Select("parametre_nom='" + _owProperty + "'")[0]["parametre_valeur"].ToString();
@@ -44,6 +60,9 @@ namespace Utilitaires
                 return null;
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private string LayerValue(string _owProperty)
         {
             string _valeur = LayerData.Select("parametre_nom='" + _owProperty + "'")[0]["parametre_valeur"].ToString();
@@ -53,6 +72,9 @@ namespace Utilitaires
                 return null;
         }
 
+        //////////////////////////////////////////////////
+        /// @brief Desc
+        //////////////////////////////////////////////////
         private void LayerHtml()
         {
             HtmlCode = "<div";
