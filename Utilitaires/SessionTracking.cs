@@ -8,8 +8,7 @@ namespace Utilitaires
 {
     //////////////////////////////////////////////////
     /// @class SessionTracking
-    /// @par Description
-    /// @note Note
+    /// @par Classe permettant d'avoir a suivi des pages consulter par le visiteur / user
     //////////////////////////////////////////////////
     public class SessionTracking
     {
@@ -17,69 +16,69 @@ namespace Utilitaires
 
         private int _config_id;
 
-        /**
-         * \brief  Adresse IP du visiteur ta mere la puta
-         */
+        //////////////////////////////////////////////////
+        /// @brief Adresse IP du visiteur
+        //////////////////////////////////////////////////
         public String VisiteurAddress;
 
-        /**
-         * \brief  Chaine de connexion à la base de données
-         */
+        //////////////////////////////////////////////////
+        /// @brief Chaine de connexion à la base de données
+        //////////////////////////////////////////////////
         public String VisiteurDsn;
 
-        /**
-         * \brief Chaine décrivant l'agent utilisateur (navigateur)
-         */
+        //////////////////////////////////////////////////
+        /// @brief Chaine décrivant l'agent utilisateur (navigateur)
+        //////////////////////////////////////////////////
         public String VisiteurUserAgent;
 
-        /**
-         * \brief Chaine décrivant l'agent utilisateur (navigateur)
-         */
+        //////////////////////////////////////////////////
+        /// @brief Browser du visiteur
+        //////////////////////////////////////////////////
         public HttpBrowserCapabilities VisiteurBrowser;
 
-        /**
-          * \brief Id du visiteur
-          */
+        //////////////////////////////////////////////////
+        /// @brief Id du visiteur
+        //////////////////////////////////////////////////
         public int VisiteurId;
 
-        /**
-          * \brief Langue du visiteur
-          */
+        //////////////////////////////////////////////////
+        /// @brief Langue du visiteur
+        //////////////////////////////////////////////////
         public string VisiteurLangue;
 
-        /**
-         * \brief Page d'accueil du visiteur
-         */
+        //////////////////////////////////////////////////
+        /// @brief Page d'accueil du visiteur
+        //////////////////////////////////////////////////
         public string VisiteurHomePage;
 
-        /**
-          * \brief Profil du visiteur
-          */
+        //////////////////////////////////////////////////
+        /// @brief Profil du visiteur
+        //////////////////////////////////////////////////
         public int VisiteurProfil;
 
-        /**
-         * \brief ADN du site
-         */
+        //////////////////////////////////////////////////
+        /// @brief Id ADN du site
+        //////////////////////////////////////////////////
         public int VisiteurSite;
 
-        /**
-         * \brief Identifiant ADN de la visite
-         */
+        //////////////////////////////////////////////////
+        /// @brief Identifiant ADN de la visite
+        //////////////////////////////////////////////////
         public int VisiteurVisiteId;
 
-        /**
-          * \brief Rubriques accessibles au visiteur
-          */
+        //////////////////////////////////////////////////
+        /// @brief Rubriques accessibles au visiteur
+        //////////////////////////////////////////////////
         public DataTable VisiteurDroits;
 
-        /**
- * \brief Page vue par le visiteur
- */
+        //////////////////////////////////////////////////
+        /// @brief Page vue par le visiteur
+        //////////////////////////////////////////////////
         public int VisiteurPage;
 
-        /**
- * \brief URL vivitée
- */
+        //////////////////////////////////////////////////
+        /// @brief URL vivitée
+        //////////////////////////////////////////////////
         public int VisiteurPageURL;
 
         #endregion
@@ -89,7 +88,7 @@ namespace Utilitaires
         #region "Enregistrement des visites et des configurations"
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Récupère la configuration du visiteur
         //////////////////////////////////////////////////
         public void Visiteur_Configuration()
         {
@@ -123,7 +122,7 @@ namespace Utilitaires
         }
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Enregistre la visite
         //////////////////////////////////////////////////
         public void Visiteur_Enregistre_Visite(string _session)
         {
@@ -179,7 +178,7 @@ namespace Utilitaires
 
         }
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Modifie la visite
         //////////////////////////////////////////////////
         public void Visiteur_Anonyme_To_Member(int memberid, int visiteid) {
 
@@ -204,55 +203,21 @@ namespace Utilitaires
 
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Voir la procedure stocker "Visiteur_Enregistre_Hit" pour savoir comment l'utiliser
         //////////////////////////////////////////////////
-        public DataSet Visiteur_Enregistre_Hit(DataSet dataSet, string _referer, string _domaine)
+        public void Visiteur_Enregistre_Hit(string _referer, string _domaine)
             {
-            /*
-            try
-            {
-                //récupérer le dataset
-                //Traitement de la table [0] wmsREFERER
-                //identifier la ligne qui correspond à _referer et la mettre à jour
-                int referer_id = -1;
-                bool exist = false;
-                foreach (DataRow ligne in dataSet.Tables[0].Rows)
-                {
-                    if ((string)ligne["referer_url"] == _referer)
-                    {
-                        referer_id = (int)ligne["referer_id"];
-                        exist = true;
-                    }
-                }
-                if (exist == false)
-                {
-                    DataRow r = dataSet.Tables[0].NewRow();
-                    r["referer_url"] = _referer;
-                    r["referer_domaine"] = _domaine;
-                    r["referer_site"] = VisiteurSite;
-                    dataSet.Tables[0].Rows.Add(r);
-                }
-
-
-                //traitement de la table [1] : wmsHITS
-                //création d'une nouvelle ligne
-                //insertion de cette nouvelle ligne dans la table
-                //mise à jour du dataset
-                DataRow row = dataSet.Tables[1].NewRow();
-                row["hit_date"] = DateTime.Now;
-                row["referer_id"] = referer_id;
-                row["visite_id"] = VisiteurVisiteId;
-                row["page_id"] = VisiteurPage;
-                row["hit_url"] = VisiteurPageURL;
-                dataSet.Tables[1].Rows.Add(row);
-            }
-            catch (Exception err)
-            {
-                Console.WriteLine(err.Message);
-            }
-
-            */
-            return dataSet;
+            DataServices ds = new DataServices(VisiteurDsn, "Visiteur_Enregistre_Hit");
+            ds.UtilitySqlCommand.CommandType = CommandType.StoredProcedure;
+            ds.AddParameter("@referer", SqlDbType.VarChar, 255, ParameterDirection.Input, _referer, "referer_url");
+            ds.AddParameter("@domaine", SqlDbType.VarChar, 255, ParameterDirection.Input, _domaine, "referer_domaine");
+            ds.AddParameter("@site", SqlDbType.Int, 255, ParameterDirection.Input, VisiteurSite, "referer_site");
+            ds.AddParameter("@date", SqlDbType.DateTime, 255, ParameterDirection.Input, DateTime.Now, "hit_date");
+            ds.AddParameter("@session", SqlDbType.Int, 255, ParameterDirection.Input, VisiteurVisiteId, "visite_id");
+            ds.AddParameter("@rubrique", SqlDbType.Int, 255, ParameterDirection.Input, VisiteurPage, "page_id");
+            ds.AddParameter("@url", SqlDbType.VarChar, 255, ParameterDirection.Input, VisiteurPageURL, "hit_url");
+            ds.UtilitySqlCommand.ExecuteReader();
+            ds.Dispose();
         }
 
 
@@ -262,7 +227,7 @@ namespace Utilitaires
         #region "Gestion du profil"
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief  Construit la suite des rubriques autorisées au format CSV (OR remplace ;)
         //////////////////////////////////////////////////
         public string Visiteur_Droits_Filtre()
         {
@@ -275,7 +240,7 @@ namespace Utilitaires
             return _csvFormat.Substring(_csvFormat.Length - 4);
         }
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Récupère le profil du visiteur (visiteurID, langue, profil)
         //////////////////////////////////////////////////
         public void Profil_Visiteur(int _visiteur, string _langue, int _profil)
         {
@@ -285,7 +250,7 @@ namespace Utilitaires
             VisiteurDroits = Charge_Profil_Visiteur();
         }
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Récupère le profil du visiteur (enregistrement Datarow)
         //////////////////////////////////////////////////
         public void Profil_Visiteur(DataRow _visiteurData)
         {
@@ -296,7 +261,7 @@ namespace Utilitaires
         }
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Construit un Datatable contenant les rubriques accessibles par le profil pour le site sélectionné
         //////////////////////////////////////////////////
         private DataTable Charge_Profil_Visiteur()
         {
@@ -320,7 +285,7 @@ namespace Utilitaires
         }
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Charge le chemin de la page d'accueil pour le profil et pour le site sélectionné
         //////////////////////////////////////////////////
         private string Charge_Visiteur_Homepage()
         {

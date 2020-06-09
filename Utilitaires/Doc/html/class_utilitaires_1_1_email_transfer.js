@@ -2,6 +2,9 @@ var class_utilitaires_1_1_email_transfer =
 [
     [ "EmailTransfer", "class_utilitaires_1_1_email_transfer.html#ada75db3ffdcf18777668a02fb0fb3cbb", null ],
     [ "EnvoieMessage", "class_utilitaires_1_1_email_transfer.html#abe036cbc79d2d98db0da55376ebc7d48", null ],
+    [ "ChargeProprietes", "class_utilitaires_1_1_email_transfer.html#ac9a67ead4c6efb449bb68429b04783f4", null ],
+    [ "ChargeDestinataires", "class_utilitaires_1_1_email_transfer.html#ac17791b639a4ed0abf7e039cec24b594", null ],
+    [ "CleanQuotes", "class_utilitaires_1_1_email_transfer.html#aa43007dfc5a436a278657cc67e8564b6", null ],
     [ "TransferEmailMessageName", "class_utilitaires_1_1_email_transfer.html#acc4453ddffc117360f574691d136bffd", null ],
     [ "TransferEmailServerName", "class_utilitaires_1_1_email_transfer.html#a9963dedefb17d12b7d3b50a872c8332e", null ],
     [ "TransferRecipientBcc", "class_utilitaires_1_1_email_transfer.html#abce13473fb4bbb2565b358a48d539e00", null ],

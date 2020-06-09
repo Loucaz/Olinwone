@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['revolutionlayer_169',['RevolutionLayer',['../class_utilitaires_1_1_revolution_layer.html#a9f10ec353de638cfdfa51fe88a9af363',1,'Utilitaires::RevolutionLayer']]],
-  ['revolutionslide_170',['RevolutionSlide',['../class_utilitaires_1_1_revolution_slide.html#af9342e2161bdcce6b6366cb55e5790cf',1,'Utilitaires::RevolutionSlide']]]
+  ['preparemessage_203',['PrepareMessage',['../class_utilitaires_1_1_email_message.html#aea4df7a1d992234ecfbb0a7337a88e69',1,'Utilitaires::EmailMessage']]],
+  ['profil_5fvisiteur_204',['Profil_Visiteur',['../class_utilitaires_1_1_session_tracking.html#a17d9b79d45b6e39bbe7d30bc2416cb67',1,'Utilitaires.SessionTracking.Profil_Visiteur(int _visiteur, string _langue, int _profil)'],['../class_utilitaires_1_1_session_tracking.html#aa864f49ff0bdc9281402c60fe92d58cb',1,'Utilitaires.SessionTracking.Profil_Visiteur(DataRow _visiteurData)']]]
 ];

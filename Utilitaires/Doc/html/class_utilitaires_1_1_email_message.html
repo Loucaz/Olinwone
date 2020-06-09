@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('class_utilitaires_1_1_email_message.ht
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_utilitaires_1_1_email_message-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -106,8 +107,8 @@ Inheritance diagram for Utilitaires.EmailMessage:</div>
   <img src="class_utilitaires_1_1_email_message.png" alt=""/>
  </div></div>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section user"><dt>Description</dt><dd></dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Note </dd></dl>
+<div class="textblock"><dl class="section user"><dt>Permet a Onlinwone de préparer des messages électroniques à un serveur de protocole SMTP (Simple Mail Transfer Protocol)</dt><dd></dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Une connaissance sur System.Net.Mail est requise pour comprendre le fonctionnement de la construction du mail notamment la classe MailMessage </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -125,18 +126,37 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="separator:a53c5874cbc9be79135f2297cb6401da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83f87775ad24e7b861da9daecb7881f9"><td class="memItemLeft" align="right" valign="top"><a id="a83f87775ad24e7b861da9daecb7881f9"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_email_message.html#a83f87775ad24e7b861da9daecb7881f9">MessageSubject</a></td></tr>
-<tr class="memdesc:a83f87775ad24e7b861da9daecb7881f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:a83f87775ad24e7b861da9daecb7881f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sujet du message. <br /></td></tr>
 <tr class="separator:a83f87775ad24e7b861da9daecb7881f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85a64a0340091519c6fd741dcff5ed6b"><td class="memItemLeft" align="right" valign="top"><a id="a85a64a0340091519c6fd741dcff5ed6b"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_email_message.html#a85a64a0340091519c6fd741dcff5ed6b">MessageTemplate</a></td></tr>
-<tr class="memdesc:a85a64a0340091519c6fd741dcff5ed6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:a85a64a0340091519c6fd741dcff5ed6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template du message. <br /></td></tr>
 <tr class="separator:a85a64a0340091519c6fd741dcff5ed6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aea4df7a1d992234ecfbb0a7337a88e69"><td class="memItemLeft" align="right" valign="top"><a id="aea4df7a1d992234ecfbb0a7337a88e69"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_email_message.html#aea4df7a1d992234ecfbb0a7337a88e69">PrepareMessage</a> (string personnaliseNom, string personnaliseUrl, string personnaliseAdresse)</td></tr>
+<tr class="memdesc:aea4df7a1d992234ecfbb0a7337a88e69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construction du message. <br /></td></tr>
+<tr class="separator:aea4df7a1d992234ecfbb0a7337a88e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83fe269021e6e7e51d460de8eed47291"><td class="memItemLeft" align="right" valign="top"><a id="a83fe269021e6e7e51d460de8eed47291"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_email_message.html#a83fe269021e6e7e51d460de8eed47291">ChargeAlternateView</a> (string text, string charset)</td></tr>
+<tr class="memdesc:a83fe269021e6e7e51d460de8eed47291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la vue du mail en html ou plaintext. <br /></td></tr>
+<tr class="separator:a83fe269021e6e7e51d460de8eed47291"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24f0a8414c5c27733b73790f04817eea"><td class="memItemLeft" align="right" valign="top"><a id="a24f0a8414c5c27733b73790f04817eea"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_email_message.html#a24f0a8414c5c27733b73790f04817eea">ChargeProprietes</a> (DataTable _composants, string _composantNom)</td></tr>
+<tr class="memdesc:a24f0a8414c5c27733b73790f04817eea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les propriétés du composant stockés en base de données. <br /></td></tr>
+<tr class="separator:a24f0a8414c5c27733b73790f04817eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae60e1f6266f9957cfb06b098dca45223"><td class="memItemLeft" align="right" valign="top"><a id="ae60e1f6266f9957cfb06b098dca45223"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_email_message.html#ae60e1f6266f9957cfb06b098dca45223">Html2Text</a> (string sourceHTML)</td></tr>
+<tr class="memdesc:ae60e1f6266f9957cfb06b098dca45223"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suppression des sauts de ligne HTML. <br /></td></tr>
+<tr class="separator:ae60e1f6266f9957cfb06b098dca45223"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6b5f7af7d86190aaf921a0e86c047c4e"><td class="memItemLeft" align="right" valign="top"><a id="a6b5f7af7d86190aaf921a0e86c047c4e"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_email_message.html#a6b5f7af7d86190aaf921a0e86c047c4e">EmailMessage</a> (string _composant, DataTable _composants, string _nom, string _url, string _adresse)</td></tr>
-<tr class="memdesc:a6b5f7af7d86190aaf921a0e86c047c4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:a6b5f7af7d86190aaf921a0e86c047c4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur. <br /></td></tr>
 <tr class="separator:a6b5f7af7d86190aaf921a0e86c047c4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

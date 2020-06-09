@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['profil_5fvisiteur_168',['Profil_Visiteur',['../class_utilitaires_1_1_session_tracking.html#a17d9b79d45b6e39bbe7d30bc2416cb67',1,'Utilitaires.SessionTracking.Profil_Visiteur(int _visiteur, string _langue, int _profil)'],['../class_utilitaires_1_1_session_tracking.html#aa864f49ff0bdc9281402c60fe92d58cb',1,'Utilitaires.SessionTracking.Profil_Visiteur(DataRow _visiteurData)']]]
+  ['layerattribut_199',['LayerAttribut',['../class_utilitaires_1_1_revolution_layer.html#ad44c0ded13ac5b2ad77c2be61566b475',1,'Utilitaires::RevolutionLayer']]],
+  ['layerattributspecial_200',['LayerAttributSpecial',['../class_utilitaires_1_1_revolution_layer.html#a0492414d167e715741b7d86e87240f1f',1,'Utilitaires::RevolutionLayer']]],
+  ['layerhtml_201',['LayerHtml',['../class_utilitaires_1_1_revolution_layer.html#ad65d0998f1df594eef9fe7c30c69c885',1,'Utilitaires::RevolutionLayer']]],
+  ['layervalue_202',['LayerValue',['../class_utilitaires_1_1_revolution_layer.html#a7a14e6bd20302c231590136a100cc144',1,'Utilitaires::RevolutionLayer']]]
 ];

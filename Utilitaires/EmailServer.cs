@@ -7,15 +7,15 @@ namespace Utilitaires
 {
     //////////////////////////////////////////////////
     /// @class EmailServer
-    /// @par Description
-    /// @note Note
+    /// @par Permet a Onlinwone d'autorise l'accès au serveur de protocole SMTP (Simple Mail Transfer Protocol)
+    /// @note Une connaissance sur System.Net.Mail est requise pour comprendre le fonctionnement de la construction du mail notamment la classe SmtpClient
     //////////////////////////////////////////////////
     public class EmailServer : SmtpClient
     {
         private Snippets snippets = new Snippets();
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Constructeur
         //////////////////////////////////////////////////
         public EmailServer(string _composant, DataTable _composants)
         {
@@ -24,31 +24,31 @@ namespace Utilitaires
         }
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Identifiant nécessaire à l'accès sur le serveur
         //////////////////////////////////////////////////
         public string ServerLogin;
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Nom du serveur
         //////////////////////////////////////////////////
         public string ServerName;
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Identifiant nécessaire à l'accès sur le serveur
         //////////////////////////////////////////////////
         public string ServerPassword;
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Port du serveur à utiliser
         //////////////////////////////////////////////////
         public int ServerPort;
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief  Sécurité du serveur est activée
         //////////////////////////////////////////////////
         public bool ServerPrivacy;
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Autorise l'accès au serveur
         //////////////////////////////////////////////////
         private void AutoriseServeur()
         {
@@ -61,7 +61,7 @@ namespace Utilitaires
         }
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Charge les propriétés du composant stockés en base de données 
         //////////////////////////////////////////////////
         private void ChargeProprietes(DataTable _composants, string _composantNom)
         {

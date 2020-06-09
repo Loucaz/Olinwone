@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('class_utilitaires_1_1_session_tracking
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_utilitaires_1_1_session_tracking-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -100,14 +101,13 @@ $(document).ready(function(){initNavTree('class_utilitaires_1_1_session_tracking
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section user"><dt>Description</dt><dd></dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Note </dd></dl>
+<div class="textblock"><dl class="section user"><dt>Classe permettant d'avoir a suivi des pages consulter par le visiteur / user</dt><dd></dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a4e101e04bef397c179e59079748feef6"><td class="memItemLeft" align="right" valign="top"><a id="a4e101e04bef397c179e59079748feef6"></a>
 String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_session_tracking.html#a4e101e04bef397c179e59079748feef6">VisiteurAddress</a></td></tr>
-<tr class="memdesc:a4e101e04bef397c179e59079748feef6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adresse IP du visiteur ta mere la puta. <br /></td></tr>
+<tr class="memdesc:a4e101e04bef397c179e59079748feef6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adresse IP du visiteur. <br /></td></tr>
 <tr class="separator:a4e101e04bef397c179e59079748feef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4807e1abe7093a46077acd25cf9cc0c9"><td class="memItemLeft" align="right" valign="top"><a id="a4807e1abe7093a46077acd25cf9cc0c9"></a>
 String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_session_tracking.html#a4807e1abe7093a46077acd25cf9cc0c9">VisiteurDsn</a></td></tr>
@@ -119,7 +119,7 @@ String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="separator:ade078cc1a796410a870fa4d79cb0e19a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80f3f8d979ab99951fdec97360b270e7"><td class="memItemLeft" align="right" valign="top"><a id="a80f3f8d979ab99951fdec97360b270e7"></a>
 HttpBrowserCapabilities&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_session_tracking.html#a80f3f8d979ab99951fdec97360b270e7">VisiteurBrowser</a></td></tr>
-<tr class="memdesc:a80f3f8d979ab99951fdec97360b270e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chaine décrivant l'agent utilisateur (navigateur) <br /></td></tr>
+<tr class="memdesc:a80f3f8d979ab99951fdec97360b270e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Browser du visiteur. <br /></td></tr>
 <tr class="separator:a80f3f8d979ab99951fdec97360b270e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b8dceed92f997728ba41a31a5177474"><td class="memItemLeft" align="right" valign="top"><a id="a6b8dceed92f997728ba41a31a5177474"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_session_tracking.html#a6b8dceed92f997728ba41a31a5177474">VisiteurId</a></td></tr>
@@ -139,7 +139,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="separator:a249e843e80d435eb69c1d883624cae9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91ac295b5a529c91ef4390f68ad5bfe6"><td class="memItemLeft" align="right" valign="top"><a id="a91ac295b5a529c91ef4390f68ad5bfe6"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_session_tracking.html#a91ac295b5a529c91ef4390f68ad5bfe6">VisiteurSite</a></td></tr>
-<tr class="memdesc:a91ac295b5a529c91ef4390f68ad5bfe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADN du site. <br /></td></tr>
+<tr class="memdesc:a91ac295b5a529c91ef4390f68ad5bfe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Id ADN du site. <br /></td></tr>
 <tr class="separator:a91ac295b5a529c91ef4390f68ad5bfe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85456311276f0508b0ba6b14f1a2a74b"><td class="memItemLeft" align="right" valign="top"><a id="a85456311276f0508b0ba6b14f1a2a74b"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_session_tracking.html#a85456311276f0508b0ba6b14f1a2a74b">VisiteurVisiteId</a></td></tr>
@@ -158,35 +158,46 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="memdesc:a064548e169bf12ac10baf8b68d83ceab"><td class="mdescLeft">&#160;</td><td class="mdescRight">URL vivitée. <br /></td></tr>
 <tr class="separator:a064548e169bf12ac10baf8b68d83ceab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a87633d612b514077125520cf54de8111"><td class="memItemLeft" align="right" valign="top"><a id="a87633d612b514077125520cf54de8111"></a>
+DataTable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_session_tracking.html#a87633d612b514077125520cf54de8111">Charge_Profil_Visiteur</a> ()</td></tr>
+<tr class="memdesc:a87633d612b514077125520cf54de8111"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit un Datatable contenant les rubriques accessibles par le profil pour le site sélectionné <br /></td></tr>
+<tr class="separator:a87633d612b514077125520cf54de8111"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a522ee345fb7f2d2bd2c132a51915464f"><td class="memItemLeft" align="right" valign="top"><a id="a522ee345fb7f2d2bd2c132a51915464f"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_session_tracking.html#a522ee345fb7f2d2bd2c132a51915464f">Charge_Visiteur_Homepage</a> ()</td></tr>
+<tr class="memdesc:a522ee345fb7f2d2bd2c132a51915464f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge le chemin de la page d'accueil pour le profil et pour le site sélectionné <br /></td></tr>
+<tr class="separator:a522ee345fb7f2d2bd2c132a51915464f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a722a13ec3f2b4be9755406bdbbf2284c"><td class="memItemLeft" align="right" valign="top"><a id="a722a13ec3f2b4be9755406bdbbf2284c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_session_tracking.html#a722a13ec3f2b4be9755406bdbbf2284c">Visiteur_Configuration</a> ()</td></tr>
-<tr class="memdesc:a722a13ec3f2b4be9755406bdbbf2284c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:a722a13ec3f2b4be9755406bdbbf2284c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère la configuration du visiteur. <br /></td></tr>
 <tr class="separator:a722a13ec3f2b4be9755406bdbbf2284c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab404c99f71c19feb6b85ca20e0e775f1"><td class="memItemLeft" align="right" valign="top"><a id="ab404c99f71c19feb6b85ca20e0e775f1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_session_tracking.html#ab404c99f71c19feb6b85ca20e0e775f1">Visiteur_Enregistre_Visite</a> (string _session)</td></tr>
-<tr class="memdesc:ab404c99f71c19feb6b85ca20e0e775f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:ab404c99f71c19feb6b85ca20e0e775f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enregistre la visite. <br /></td></tr>
 <tr class="separator:ab404c99f71c19feb6b85ca20e0e775f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f8e184506cf5334edb81a3f8af4caa4"><td class="memItemLeft" align="right" valign="top"><a id="a3f8e184506cf5334edb81a3f8af4caa4"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_session_tracking.html#a3f8e184506cf5334edb81a3f8af4caa4">Visiteur_Anonyme_To_Member</a> (int memberid, int visiteid)</td></tr>
-<tr class="memdesc:a3f8e184506cf5334edb81a3f8af4caa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:a3f8e184506cf5334edb81a3f8af4caa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie la visite. <br /></td></tr>
 <tr class="separator:a3f8e184506cf5334edb81a3f8af4caa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a123ac3856a71e53c8e2f631644ab8d66"><td class="memItemLeft" align="right" valign="top"><a id="a123ac3856a71e53c8e2f631644ab8d66"></a>
-DataSet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_session_tracking.html#a123ac3856a71e53c8e2f631644ab8d66">Visiteur_Enregistre_Hit</a> (DataSet dataSet, string _referer, string _domaine)</td></tr>
-<tr class="memdesc:a123ac3856a71e53c8e2f631644ab8d66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
-<tr class="separator:a123ac3856a71e53c8e2f631644ab8d66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad07d992aad124a21bacfacc3fb5ffcf9"><td class="memItemLeft" align="right" valign="top"><a id="ad07d992aad124a21bacfacc3fb5ffcf9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_session_tracking.html#ad07d992aad124a21bacfacc3fb5ffcf9">Visiteur_Enregistre_Hit</a> (string _referer, string _domaine)</td></tr>
+<tr class="memdesc:ad07d992aad124a21bacfacc3fb5ffcf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Voir la procedure stocker "Visiteur_Enregistre_Hit" pour savoir comment l'utiliser. <br /></td></tr>
+<tr class="separator:ad07d992aad124a21bacfacc3fb5ffcf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42eedcd0f4430be1c43b3c667512d320"><td class="memItemLeft" align="right" valign="top"><a id="a42eedcd0f4430be1c43b3c667512d320"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_session_tracking.html#a42eedcd0f4430be1c43b3c667512d320">Visiteur_Droits_Filtre</a> ()</td></tr>
-<tr class="memdesc:a42eedcd0f4430be1c43b3c667512d320"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:a42eedcd0f4430be1c43b3c667512d320"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit la suite des rubriques autorisées au format CSV (OR remplace ;) <br /></td></tr>
 <tr class="separator:a42eedcd0f4430be1c43b3c667512d320"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17d9b79d45b6e39bbe7d30bc2416cb67"><td class="memItemLeft" align="right" valign="top"><a id="a17d9b79d45b6e39bbe7d30bc2416cb67"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_session_tracking.html#a17d9b79d45b6e39bbe7d30bc2416cb67">Profil_Visiteur</a> (int _visiteur, string _langue, int _profil)</td></tr>
-<tr class="memdesc:a17d9b79d45b6e39bbe7d30bc2416cb67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:a17d9b79d45b6e39bbe7d30bc2416cb67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère le profil du visiteur (visiteurID, langue, profil) <br /></td></tr>
 <tr class="separator:a17d9b79d45b6e39bbe7d30bc2416cb67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa864f49ff0bdc9281402c60fe92d58cb"><td class="memItemLeft" align="right" valign="top"><a id="aa864f49ff0bdc9281402c60fe92d58cb"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_session_tracking.html#aa864f49ff0bdc9281402c60fe92d58cb">Profil_Visiteur</a> (DataRow _visiteurData)</td></tr>
-<tr class="memdesc:aa864f49ff0bdc9281402c60fe92d58cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:aa864f49ff0bdc9281402c60fe92d58cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère le profil du visiteur (enregistrement Datarow) <br /></td></tr>
 <tr class="separator:aa864f49ff0bdc9281402c60fe92d58cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

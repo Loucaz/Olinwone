@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('class_utilitaires_1_1_email_server.htm
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_utilitaires_1_1_email_server-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -106,37 +107,48 @@ Inheritance diagram for Utilitaires.EmailServer:</div>
   <img src="class_utilitaires_1_1_email_server.png" alt=""/>
  </div></div>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section user"><dt>Description</dt><dd></dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Note </dd></dl>
+<div class="textblock"><dl class="section user"><dt>Permet a Onlinwone d'autorise l'accès au serveur de protocole SMTP (Simple Mail Transfer Protocol)</dt><dd></dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Une connaissance sur System.Net.Mail est requise pour comprendre le fonctionnement de la construction du mail notamment la classe SmtpClient </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aeaccfa113810220f1e81dedbdfc2d071"><td class="memItemLeft" align="right" valign="top"><a id="aeaccfa113810220f1e81dedbdfc2d071"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_email_server.html#aeaccfa113810220f1e81dedbdfc2d071">ServerLogin</a></td></tr>
-<tr class="memdesc:aeaccfa113810220f1e81dedbdfc2d071"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:aeaccfa113810220f1e81dedbdfc2d071"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifiant nécessaire à l'accès sur le serveur. <br /></td></tr>
 <tr class="separator:aeaccfa113810220f1e81dedbdfc2d071"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a712d5b1d122748f4cef3f6bde5beca8f"><td class="memItemLeft" align="right" valign="top"><a id="a712d5b1d122748f4cef3f6bde5beca8f"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_email_server.html#a712d5b1d122748f4cef3f6bde5beca8f">ServerName</a></td></tr>
-<tr class="memdesc:a712d5b1d122748f4cef3f6bde5beca8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:a712d5b1d122748f4cef3f6bde5beca8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nom du serveur. <br /></td></tr>
 <tr class="separator:a712d5b1d122748f4cef3f6bde5beca8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae78ec567b9af82e70efd859e47190dfe"><td class="memItemLeft" align="right" valign="top"><a id="ae78ec567b9af82e70efd859e47190dfe"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_email_server.html#ae78ec567b9af82e70efd859e47190dfe">ServerPassword</a></td></tr>
-<tr class="memdesc:ae78ec567b9af82e70efd859e47190dfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:ae78ec567b9af82e70efd859e47190dfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifiant nécessaire à l'accès sur le serveur. <br /></td></tr>
 <tr class="separator:ae78ec567b9af82e70efd859e47190dfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa38b472fd1ec4fbf978596e663fcab3e"><td class="memItemLeft" align="right" valign="top"><a id="aa38b472fd1ec4fbf978596e663fcab3e"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_email_server.html#aa38b472fd1ec4fbf978596e663fcab3e">ServerPort</a></td></tr>
-<tr class="memdesc:aa38b472fd1ec4fbf978596e663fcab3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:aa38b472fd1ec4fbf978596e663fcab3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Port du serveur à utiliser. <br /></td></tr>
 <tr class="separator:aa38b472fd1ec4fbf978596e663fcab3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae80824e9a6559434df3a8cda41e7b4f2"><td class="memItemLeft" align="right" valign="top"><a id="ae80824e9a6559434df3a8cda41e7b4f2"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_email_server.html#ae80824e9a6559434df3a8cda41e7b4f2">ServerPrivacy</a></td></tr>
-<tr class="memdesc:ae80824e9a6559434df3a8cda41e7b4f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:ae80824e9a6559434df3a8cda41e7b4f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sécurité du serveur est activée. <br /></td></tr>
 <tr class="separator:ae80824e9a6559434df3a8cda41e7b4f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a7fdd18093a7313c5c22490e857548cd7"><td class="memItemLeft" align="right" valign="top"><a id="a7fdd18093a7313c5c22490e857548cd7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_email_server.html#a7fdd18093a7313c5c22490e857548cd7">AutoriseServeur</a> ()</td></tr>
+<tr class="memdesc:a7fdd18093a7313c5c22490e857548cd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Autorise l'accès au serveur. <br /></td></tr>
+<tr class="separator:a7fdd18093a7313c5c22490e857548cd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a770cc938d7412296beb2c09d0ddc9631"><td class="memItemLeft" align="right" valign="top"><a id="a770cc938d7412296beb2c09d0ddc9631"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_email_server.html#a770cc938d7412296beb2c09d0ddc9631">ChargeProprietes</a> (DataTable _composants, string _composantNom)</td></tr>
+<tr class="memdesc:a770cc938d7412296beb2c09d0ddc9631"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les propriétés du composant stockés en base de données. <br /></td></tr>
+<tr class="separator:a770cc938d7412296beb2c09d0ddc9631"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a898c60c722f12113af5d9553eb19fc76"><td class="memItemLeft" align="right" valign="top"><a id="a898c60c722f12113af5d9553eb19fc76"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_email_server.html#a898c60c722f12113af5d9553eb19fc76">EmailServer</a> (string _composant, DataTable _composants)</td></tr>
-<tr class="memdesc:a898c60c722f12113af5d9553eb19fc76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:a898c60c722f12113af5d9553eb19fc76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur. <br /></td></tr>
 <tr class="separator:a898c60c722f12113af5d9553eb19fc76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

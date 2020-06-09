@@ -93,66 +93,104 @@ $(document).ready(function(){initNavTree('class_utilitaires_1_1_snippets.html','
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_utilitaires_1_1_snippets-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Utilitaires.Snippets Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section user"><dt>Description</dt><dd></dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Note </dd></dl>
+<div class="textblock"><dl class="section user"><dt>Classe avec diverse fonction utile à Olinwone avec notamment du chiffrement et des modifications d'url</dt><dd></dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab4350b111bcfe7dd154f1ddcacb13339"><td class="memItemLeft" align="right" valign="top"><a id="ab4350b111bcfe7dd154f1ddcacb13339"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_snippets.html#ab4350b111bcfe7dd154f1ddcacb13339">Snippets</a> ()</td></tr>
-<tr class="memdesc:ab4350b111bcfe7dd154f1ddcacb13339"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:ab4350b111bcfe7dd154f1ddcacb13339"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur. <br /></td></tr>
 <tr class="separator:ab4350b111bcfe7dd154f1ddcacb13339"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3da289fbf4bf1de84e470cc0221fdb5"><td class="memItemLeft" align="right" valign="top"><a id="af3da289fbf4bf1de84e470cc0221fdb5"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_snippets.html#af3da289fbf4bf1de84e470cc0221fdb5">EncodageHash</a> (string source)</td></tr>
-<tr class="memdesc:af3da289fbf4bf1de84e470cc0221fdb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:af3da289fbf4bf1de84e470cc0221fdb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de chiffrer un string en SHA512. <br /></td></tr>
 <tr class="separator:af3da289fbf4bf1de84e470cc0221fdb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62832be1b0d664a02e9320a53542ea5c"><td class="memItemLeft" align="right" valign="top"><a id="a62832be1b0d664a02e9320a53542ea5c"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_snippets.html#a62832be1b0d664a02e9320a53542ea5c">UnixTimestamp</a> (DateTime thisDate)</td></tr>
-<tr class="memdesc:a62832be1b0d664a02e9320a53542ea5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:a62832be1b0d664a02e9320a53542ea5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convertir un DateTime en heure Unix, mesure du temps basée sur le nombre de secondes écoulées depuis le 1ᵉʳ janvier 1970. <br /></td></tr>
 <tr class="separator:a62832be1b0d664a02e9320a53542ea5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53483480f92e32ce5a9c785579866060"><td class="memItemLeft" align="right" valign="top"><a id="a53483480f92e32ce5a9c785579866060"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_snippets.html#a53483480f92e32ce5a9c785579866060">Base64Encode</a> (string plainText)</td></tr>
+<tr class="memdesc:a53483480f92e32ce5a9c785579866060"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode your data in Base64. <br /></td></tr>
+<tr class="separator:a53483480f92e32ce5a9c785579866060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28caa45399ac42ba685a3043b4171e45"><td class="memItemLeft" align="right" valign="top"><a id="a28caa45399ac42ba685a3043b4171e45"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_snippets.html#a28caa45399ac42ba685a3043b4171e45">Base64Decode</a> (string base64EncodedData)</td></tr>
+<tr class="memdesc:a28caa45399ac42ba685a3043b4171e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode your data. <br /></td></tr>
+<tr class="separator:a28caa45399ac42ba685a3043b4171e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3512c898ec31691907a1cfa7fb61c23"><td class="memItemLeft" align="right" valign="top"><a id="af3512c898ec31691907a1cfa7fb61c23"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_snippets.html#af3512c898ec31691907a1cfa7fb61c23">CompleteRequete</a> (string chaine, Dictionary&lt; string, string &gt; dictionary)</td></tr>
-<tr class="memdesc:af3512c898ec31691907a1cfa7fb61c23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:af3512c898ec31691907a1cfa7fb61c23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adapte la Requete avec un Dictionary du genre : "&lt;url&gt;", _url. <br /></td></tr>
 <tr class="separator:af3512c898ec31691907a1cfa7fb61c23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acee9363cea5ce4f0c26ca32b3b890767"><td class="memItemLeft" align="right" valign="top"><a id="acee9363cea5ce4f0c26ca32b3b890767"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_snippets.html#acee9363cea5ce4f0c26ca32b3b890767">UrlRoute</a> (string url, string hote)</td></tr>
-<tr class="memdesc:acee9363cea5ce4f0c26ca32b3b890767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:acee9363cea5ce4f0c26ca32b3b890767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enleve le http de l'url. <br /></td></tr>
 <tr class="separator:acee9363cea5ce4f0c26ca32b3b890767"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7a2d10d06a39cfe6d4a20bd6861b9bc"><td class="memItemLeft" align="right" valign="top"><a id="aa7a2d10d06a39cfe6d4a20bd6861b9bc"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_snippets.html#aa7a2d10d06a39cfe6d4a20bd6861b9bc">UrlUtile</a> (string url, string hote)</td></tr>
-<tr class="memdesc:aa7a2d10d06a39cfe6d4a20bd6861b9bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:aa7a2d10d06a39cfe6d4a20bd6861b9bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enlève certains paramètres de la requête. <br /></td></tr>
 <tr class="separator:aa7a2d10d06a39cfe6d4a20bd6861b9bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70ff2239a84851706d4a98031587fcfc"><td class="memItemLeft" align="right" valign="top"><a id="a70ff2239a84851706d4a98031587fcfc"></a>
-DataSet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_snippets.html#a70ff2239a84851706d4a98031587fcfc">UpdateInfoHits</a> (DataSet dataSet, int info_id, int user_id)</td></tr>
-<tr class="memdesc:a70ff2239a84851706d4a98031587fcfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memitem:a70ff2239a84851706d4a98031587fcfc"><td class="memItemLeft" align="right" valign="top">DataSet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_snippets.html#a70ff2239a84851706d4a98031587fcfc">UpdateInfoHits</a> (DataSet dataSet, int info_id, int user_id)</td></tr>
+<tr class="memdesc:a70ff2239a84851706d4a98031587fcfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Traitement de la table [0] cmsINFO puis identifie la ligne qui correspond à info_id et la mettre à jour. <br  />
+Traitement de la table [1] : cmsCONTENT_HIT puis insertion de cette nouvelle ligne dans la table.  <a href="class_utilitaires_1_1_snippets.html#a70ff2239a84851706d4a98031587fcfc">More...</a><br /></td></tr>
 <tr class="separator:a70ff2239a84851706d4a98031587fcfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d39c890ef98ed7abccf407d918c2052"><td class="memItemLeft" align="right" valign="top"><a id="a2d39c890ef98ed7abccf407d918c2052"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_snippets.html#a2d39c890ef98ed7abccf407d918c2052">ImageDisplay</a> (string imgID, string imgUrl)</td></tr>
-<tr class="memdesc:a2d39c890ef98ed7abccf407d918c2052"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:a2d39c890ef98ed7abccf407d918c2052"><td class="mdescLeft">&#160;</td><td class="mdescRight">Afficher une image. <br /></td></tr>
 <tr class="separator:a2d39c890ef98ed7abccf407d918c2052"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4722b4efdd8cf9deef147c56e9eb64c9"><td class="memItemLeft" align="right" valign="top"><a id="a4722b4efdd8cf9deef147c56e9eb64c9"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_snippets.html#a4722b4efdd8cf9deef147c56e9eb64c9">ChargeAttribut</a> (String prop, DataTable components, String componentId)</td></tr>
-<tr class="memdesc:a4722b4efdd8cf9deef147c56e9eb64c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
+<tr class="memdesc:a4722b4efdd8cf9deef147c56e9eb64c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exraire une valeur precise. <br /></td></tr>
 <tr class="separator:a4722b4efdd8cf9deef147c56e9eb64c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aa2eb420ef6fec2508247438cd2ba4178"><td class="memItemLeft" align="right" valign="top"><a id="aa2eb420ef6fec2508247438cd2ba4178"></a>
-static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_snippets.html#aa2eb420ef6fec2508247438cd2ba4178">Base64Encode</a> (string plainText)</td></tr>
-<tr class="memdesc:aa2eb420ef6fec2508247438cd2ba4178"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
-<tr class="separator:aa2eb420ef6fec2508247438cd2ba4178"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bed30950b6577426da9b272e4dffd0a"><td class="memItemLeft" align="right" valign="top"><a id="a4bed30950b6577426da9b272e4dffd0a"></a>
-static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_utilitaires_1_1_snippets.html#a4bed30950b6577426da9b272e4dffd0a">Base64Decode</a> (string base64EncodedData)</td></tr>
-<tr class="memdesc:a4bed30950b6577426da9b272e4dffd0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desc. <br /></td></tr>
-<tr class="separator:a4bed30950b6577426da9b272e4dffd0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a70ff2239a84851706d4a98031587fcfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70ff2239a84851706d4a98031587fcfc">&#9670;&nbsp;</a></span>UpdateInfoHits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DataSet Utilitaires.Snippets.UpdateInfoHits </td>
+          <td>(</td>
+          <td class="paramtype">DataSet&#160;</td>
+          <td class="paramname"><em>dataSet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>info_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>user_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Traitement de la table [0] cmsINFO puis identifie la ligne qui correspond à info_id et la mettre à jour. <br  />
+Traitement de la table [1] : cmsCONTENT_HIT puis insertion de cette nouvelle ligne dans la table. </p>
+<dl class="section user"><dt>Côté console avant la fonction:</dt><dd>Dans console construire un dataset contenant 2 tables : cmsINFO et cmsCONTENT_HIT. <br  />
+ Envoyer le dataset + user_id + info_id au composant. <br  />
+ Apres la fonction: <br  />
+ Récupération du dataset et mise en cache. <br  />
+ A la fin de la session, mise à jour de la base données avec les infos contenus dans le dataset. </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

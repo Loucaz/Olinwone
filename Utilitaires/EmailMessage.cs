@@ -7,8 +7,8 @@ namespace Utilitaires
 {
     //////////////////////////////////////////////////
     /// @class EmailMessage
-    /// @par Description
-    /// @note Note
+    /// @par Permet a Onlinwone de préparer des messages électroniques à un serveur de protocole SMTP (Simple Mail Transfer Protocol)
+    /// @note Une connaissance sur System.Net.Mail est requise pour comprendre le fonctionnement de la construction du mail notamment la classe MailMessage
     //////////////////////////////////////////////////
     public class EmailMessage : MailMessage
     {
@@ -16,7 +16,7 @@ namespace Utilitaires
 
         #region "Constructeur"
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Constructeur
         //////////////////////////////////////////////////
         public EmailMessage(string _composant, DataTable _composants, string _nom, string _url, string _adresse)
         {
@@ -25,36 +25,37 @@ namespace Utilitaires
         }
         #endregion
         #region "Propriétés"
-        /**
-        * \brief Encodage du message
-*/
+        //////////////////////////////////////////////////
+        /// @brief Encodage du message
+        //////////////////////////////////////////////////
         public string MessageEncoding;
 
-        /**
-        * \brief Nom litéral de l'émetteur
-*/
+        //////////////////////////////////////////////////
+        /// @brief Nom litéral de l'émetteur
+        //////////////////////////////////////////////////
         public string MessageFrom;
 
-        /**
-        * \brief Adresse de messagerie de l'émetteur
-*/
+        //////////////////////////////////////////////////
+        /// @brief Adresse de messagerie de l'émetteur
+        //////////////////////////////////////////////////
         public string MessageSender;
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Sujet du message
         //////////////////////////////////////////////////
         public string MessageSubject;
 
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Template du message
         //////////////////////////////////////////////////
         public string MessageTemplate;
 
-
         #endregion
+
+        #region "Méthodes et fonctions publiques"
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Construction du message
         //////////////////////////////////////////////////
         private void PrepareMessage(string personnaliseNom, string personnaliseUrl, string personnaliseAdresse)
         {
@@ -74,7 +75,7 @@ namespace Utilitaires
             ChargeAlternateView(Html2Text(_htmlText), "text/plain;charset=utf-8");
         }
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Change la vue du mail en html ou plaintext
         //////////////////////////////////////////////////
         private void ChargeAlternateView(string text,string charset)
         {
@@ -85,7 +86,7 @@ namespace Utilitaires
         }
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Charge les propriétés du composant stockés en base de données 
         //////////////////////////////////////////////////
         private void ChargeProprietes(DataTable _composants, string _composantNom)
         {
@@ -98,7 +99,7 @@ namespace Utilitaires
 
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Suppression des sauts de ligne HTML
         //////////////////////////////////////////////////
         private string Html2Text(string sourceHTML)
         {
@@ -109,6 +110,7 @@ namespace Utilitaires
             reponse.Replace( @"<[^>]*>", String.Empty); ;
             return reponse;
         }
+        #endregion
 
     }
 }

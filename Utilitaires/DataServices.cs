@@ -17,11 +17,9 @@ namespace Utilitaires
     //////////////////////////////////////////////////
     public class DataServices
     {
-        #region "Variables locales"
-        private SqlDataReader SqlDataReader;
-        #endregion
-
         #region "Propriétés"
+        private SqlDataReader SqlDataReader;
+
         //////////////////////////////////////////////////
         /// @brief Connexion demandée
         //////////////////////////////////////////////////

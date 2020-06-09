@@ -11,22 +11,21 @@ namespace Utilitaires
 {
     //////////////////////////////////////////////////
     /// @class Snippets
-    /// @par Description
-    /// @note Note
+    /// @par Classe avec diverse fonction utile à Olinwone avec notamment du chiffrement et des modifications d'url
     //////////////////////////////////////////////////
     public class Snippets
     {
         #region "Méthodes et fonctions publiques"
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Constructeur
         //////////////////////////////////////////////////
         public Snippets() { }
 
         #region "Calcules"
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Permet de chiffrer un string en SHA512
         //////////////////////////////////////////////////
         public string EncodageHash(string source) 
         {
@@ -35,7 +34,7 @@ namespace Utilitaires
         }
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Convertir un DateTime en heure Unix, mesure du temps basée sur le nombre de secondes écoulées depuis le 1ᵉʳ janvier 1970
         //////////////////////////////////////////////////
         public int UnixTimestamp(DateTime thisDate)
         {
@@ -43,24 +42,24 @@ namespace Utilitaires
         }
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Encode your data in Base64
         //////////////////////////////////////////////////
-        public static string Base64Encode(string plainText)
+        public string Base64Encode(string plainText)
         {
             return Convert.ToBase64String(Encoding.UTF8.GetBytes(plainText));
         }
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Decode your data
         //////////////////////////////////////////////////
-        public static string Base64Decode(string base64EncodedData)
+        public string Base64Decode(string base64EncodedData)
         {
             return Encoding.UTF8.GetString(Convert.FromBase64String(base64EncodedData));
         }
 
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Adapte la Requete avec un Dictionary du genre : "<url>", _url
         //////////////////////////////////////////////////
         public string CompleteRequete(string chaine, Dictionary<string,string> dictionary)
         {
@@ -77,7 +76,7 @@ namespace Utilitaires
 
         #region "URL"
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Enleve le http de l'url 
         //////////////////////////////////////////////////
         public string UrlRoute(string url, string hote)
         {
@@ -85,7 +84,7 @@ namespace Utilitaires
         }
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Enlève certains paramètres de la requête
         //////////////////////////////////////////////////
         public string UrlUtile(string url, string hote)
         {
@@ -108,20 +107,24 @@ namespace Utilitaires
 
         #region "Update database"
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief
+        /// Traitement de la table [0] cmsINFO
+        /// puis identifie la ligne qui correspond à info_id et la mettre à jour.
+        /// @n
+        /// Traitement de la table [1] : cmsCONTENT_HIT
+        /// puis insertion de cette nouvelle ligne dans la table
+        /// 
+        /// @par Côté console avant la fonction:
+        /// Dans console construire un dataset contenant 2 tables :  cmsINFO et cmsCONTENT_HIT.
+        /// @n Envoyer le dataset + user_id + info_id  au composant.
+        /// @n Apres la fonction:
+        /// @n Récupération du dataset et mise en cache.
+        /// @n A la fin de la session, mise à jour de la base données avec les infos contenus dans le dataset.
         //////////////////////////////////////////////////
         public DataSet UpdateInfoHits(DataSet dataSet, int info_id,int user_id)
         {
-            //côté console
-            //dans console construire un dataset contenant 2 tables :  cmsINFO et cmsCONTENT_HIT
-            //envoyer le dataset + user_id + info_id  au composant
-
             try
             {
-                //récupérer le dataset
-                //Traitement de la table [0] cmsINFO
-                //identifier la ligne qui correspond à info_id et la mettre à jour
-
                 bool exist = false;
                 foreach (DataRow ligne in dataSet.Tables[0].Rows)
                 {
@@ -138,37 +141,20 @@ namespace Utilitaires
                     r["info_hits"] = 1;
                     dataSet.Tables[0].Rows.Add(r);
                 }
-
-
-                //traitement de la table [1] : cmsCONTENT_HIT
-                //création d'une nouvelle ligne
-                //insertion de cette nouvelle ligne dans la table
-                //mise à jour du dataset
                 DataRow row = dataSet.Tables[1].NewRow();
                 row["hit_date"] = DateTime.Now;
                 row["hit_content"] = info_id;
                 row["hit_user"] = user_id;
                 dataSet.Tables[1].Rows.Add(row);
             }
-            catch (Exception err)
-            {
-                Console.WriteLine(err.Message);
-            }
-
-            //renvoi du dataset
-            //si erreur renvoie du datasset d'origine
-
+            catch (Exception) { }
             return dataSet;
-
-            //côté console
-            //récupération du dataset et mise en cache
-            //à la fin de la session, mise à jour de la base données avec les infos contenus dans le dataset
         }
         #endregion
 
         #region "Snippets"
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Afficher une image
         //////////////////////////////////////////////////
         public string ImageDisplay(string imgID, string imgUrl)
         {
@@ -179,7 +165,7 @@ namespace Utilitaires
         }
 
         //////////////////////////////////////////////////
-        /// @brief Desc
+        /// @brief Exraire une valeur precise
         //////////////////////////////////////////////////
         public string ChargeAttribut(String prop, DataTable components, String componentId)
         {

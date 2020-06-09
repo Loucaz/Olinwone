@@ -1,10 +1,6 @@
 var class_utilitaires_1_1_data_services =
 [
-    [ "ExecutionMode", "class_utilitaires_1_1_data_services.html#ae13175a1e9ab75d85033a0eb351e50ac", [
-      [ "INSERT", "class_utilitaires_1_1_data_services.html#ae13175a1e9ab75d85033a0eb351e50aca61ee777e7f71dc466c3b2c685d8d313b", null ],
-      [ "UPDATE", "class_utilitaires_1_1_data_services.html#ae13175a1e9ab75d85033a0eb351e50aca15a8022d0ed9cd9c2a2e756822703eb4", null ],
-      [ "DELETE", "class_utilitaires_1_1_data_services.html#ae13175a1e9ab75d85033a0eb351e50aca32f68a60cef40faedbc6af20298c1a1e", null ]
-    ] ],
+    [ "ExecutionMode", "class_utilitaires_1_1_data_services.html#ae13175a1e9ab75d85033a0eb351e50ac", null ],
     [ "DataServices", "class_utilitaires_1_1_data_services.html#aa4c36260832d2f667e6e649b8ee5c325", null ],
     [ "Dispose", "class_utilitaires_1_1_data_services.html#a159eae85fa90774df0d8058ee98aa9f1", null ],
     [ "AddParameter", "class_utilitaires_1_1_data_services.html#a206e43d962722964eeaef001fd2781bf", null ],

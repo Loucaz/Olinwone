@@ -166,7 +166,6 @@ namespace Utilitaires
             }
             else
             {
-                //A verifier ????
                 result = "-".Split('|');
             }
 
