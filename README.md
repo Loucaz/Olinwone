@@ -1,2 +1,2 @@
 # Olinwone
-Travail effectué sur des librairies D'Olinwone.
+Travail effectué sur des librairies d'Olinwone.
